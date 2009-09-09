@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;rss&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="title">RSS</label>
+			<label index="widgetSelector.description">Blog RSS export widget</label>
+			<label index="rss_click_here">Copy and paste this link into your RSS news reader</label>
+			<label index="rss_openaccess_at_this_url">This is the URL of our RSS news feed</label>
+			<label index="rss_protected_at_this_url">Your personal link to our RSS newsfeed is</label>
+			<label index="rss_click_post">Posts</label>
+			<label index="rss_click_comment">Comments</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="title">RSS</label>	
+			<label index="rss_click_here">Kopieren Sie diesen Link in Ihren RSS Reader</label>
+			<label index="rss_openaccess_at_this_url">Unser RSS Newsfeed steht für Sie bereit</label>
+			<label index="rss_protected_at_this_url">Ihr persönlicher Newsfeed Link steht für Sie bereit</label>
+			<label index="rss_click_post">Posts</label>
+			<label index="rss_click_comment">Comments</label>
+		</languageKey>
+	</data>
+</T3locallang>

@@ -1,0 +1,44 @@
+ plugin.tx_t3blog_pi1{
+
+ 	tagCloud {
+		# Settings for rendering the TagCloud
+		minFontSize = 9
+		maxFontSize = 24
+		maxColor = #94DF00
+		minColor = #E9FFBF
+		maxTagsToShow = 20
+		# lin or log
+		renderingAlgorithm = lin
+		unit = px
+		
+		
+ 		globalWrap = COA
+ 		globalWrap {
+ 			wrap = <div class="tagCloud">|</div>
+ 			10 = TEXT
+ 			10 {
+ 				wrap = <h3 class="tagCloud_title">|</h3>
+ 				field = title
+ 			}
+ 			20 = TEXT
+ 			20 {
+ 				field = data
+ 			}
+ 		}
+ 		
+		list = TEXT
+	 	list {
+	 		wrap = <ul class="tag-cloud">|</ul><div class="clear"><!-- clear --></div>
+	 		field = text
+	 	}
+		 	
+	 	item = TEXT
+	 	item {
+	 		wrap = <li>|</li>
+	 		field = text
+	 	}
+	 	
+ 	}
+ 	
+ 	
+}

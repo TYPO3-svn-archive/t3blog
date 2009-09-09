@@ -1,0 +1,79 @@
+/* ------------------------
+Styles used for the BE
+--------------------------*/
+table,
+table.recordlist  {
+	margin:0;
+	padding:0;
+	width:800px;
+}
+
+table.recordlist th {
+	background:#ccc;
+	font-weight:bold;
+	font-size:10px;
+	padding:4px 4px 4px 0;
+	margin:0;
+	text-align:left;
+}
+
+table.recordlist td {
+	padding:4px 4px 4px 0;
+	vertical-align:top;
+	border-bottom:1px solid #ccc;
+	border-collapse:collapse;
+	text-align:left;
+}
+
+table.recordlist tr.odd {
+		background:#fff;
+}
+table.recordlist tr.even {
+		background:#DFDFDF;
+}
+
+
+table.recordlist tr:hover {
+		background:#EFEFEF;
+}
+
+td.highlight{
+	margin:10px 0 0 0;
+	background:#DFEEFF;
+}
+
+a.newRecord {
+	display:block;
+	padding:10px;
+	background:#EFEFEF;
+	border:1px solid #ccc; 
+	width:800px;
+	margin:0 0 20px 0;
+}
+a.newRecord:hover{
+	background:#DFDFDF;
+}
+
+form input,
+form select {
+	border:1px solid #ccc;
+	padding:2px;
+}
+
+form select {
+	margin:0 0 10px 0;
+}
+
+
+div.pagecount {
+	padding:4px;
+	background-color:#EFEFEF;
+	width:800px;
+	margin:10px 0 0 0;
+}
+
+div.paging {
+	padding:4px;
+	background-color:#DFDFDF;
+	width:800px;
+}

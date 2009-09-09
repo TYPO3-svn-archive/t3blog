@@ -1,0 +1,118 @@
+plugin.tx_t3blog_pi1 {
+	archive {
+		catLink = COA
+		catLink {
+			1 = LOAD_REGISTER
+			1 {
+				yearfrom {
+					field = datefrom
+					strftime = %Y
+				}
+				monthfrom {
+					field = datefrom
+					strftime = %m
+				}
+				dayfrom {
+					field = datefrom
+					strftime = %d
+				}
+				yearto {
+					field = dateto
+					strftime = %Y
+				}
+				monthto{
+					field = dateto
+					strftime = %m
+				}
+				dayto {
+					field = dateto
+					strftime = %d
+				}
+			}
+			10 = TEXT
+			10 {
+				wrap =  <a class="toggle" id="toggle|" href="#">[-]</a>
+				field = id
+			}
+			20 = TEXT
+			20 {
+				dataWrap = | <span class="postnum">({field:entries})</span>
+				field = text
+				typolink {
+					parameter.field = blogUid
+					useCacheHash = 1
+					additionalParams.dataWrap = &tx_t3blog_pi1[blogList][datefrom]={register:yearfrom}-{register:monthfrom}-{register:dayfrom}&tx_t3blog_pi1[blogList][dateto]={register:yearto}-{register:monthto}-{register:dayto}
+				}
+			}
+		}
+		
+		titleLink = COA
+		titleLink {
+			1 = LOAD_REGISTER
+			1 {
+				year {
+					field = date
+					strftime = %Y
+				}
+				month {
+					field = date
+					strftime = %m
+				}
+				day {
+					field = date
+					strftime = %d
+				}
+			}
+
+			10 = TEXT
+			10 {
+				wrap = |
+				field = title
+				typolink {
+					parameter.field = blogUid
+					useCacheHash = 1
+					additionalParams.dataWrap = &tx_t3blog_pi1[blogList][showUid]={field:uid}&tx_t3blog_pi1[blogList][year]={register:year}&tx_t3blog_pi1[blogList][month]={register:month}&tx_t3blog_pi1[blogList][day]={register:day}
+				}
+			}
+
+			99 = RESTORE_REGISTER
+		}
+		
+		itemWrap = TEXT
+		itemWrap {
+			dataWrap = <li class="{field:class}">|</li>
+			field = text
+		}
+		
+		listWrap = COA
+		listWrap {
+			10 = TEXT
+			10 {
+				dataWrap = <ul class="{field:class}" id="archive_{field:id}">|</ul>
+				field = text
+			}
+			30 = TEXT
+			30 {
+				wrap = <script type="text/javascript">|</script>
+				required = 1 
+				field = js
+				
+			}
+		}
+		
+		globalWrap = COA
+		globalWrap {
+			wrap = <div id="archive">|</div>
+			10 = TEXT
+			10 { 
+				wrap = <h3>|</h3>
+				field = title
+			}
+			20 = TEXT
+			20 {
+				field = categoryTree
+			}
+			
+		}
+	}	
+}

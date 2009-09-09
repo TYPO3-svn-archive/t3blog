@@ -1,0 +1,123 @@
+Here's the realurl.conf array for the postVars.
+
+Copy the following part ('blog-post') in to the postVarSets section/array of your existing RealURL configuration:
+
+'postVarSets' => array (
+			'_DEFAULT' => array (
+			
+			---------------COPY IT HERE------------------------
+			
+			)
+			
+	)
+			
+------------------------------------------>8-----------------------------------
+			
+
+
+                'blog-post' => array(
+					
+					'year' => array(
+						'GETvar' => 'tx_t3blog_pi1[blogList][year]',
+					),
+					'month' => array(
+						'GETvar' => 'tx_t3blog_pi1[blogList][month]' ,
+					),
+					'day' => array(
+						'GETvar' => 'tx_t3blog_pi1[blogList][day]',
+					),				
+					'entry' => array (
+						'GETvar' => 'tx_t3blog_pi1[blogList][showUid]',
+						'lookUpTable' => array(
+							'table' => 'tx_t3blog_post',
+							'id_field' => 'uid',
+							'alias_field' => 'title',
+							'addWhereClause' => ' AND NOT deleted AND NOT hidden',
+							'useUniqueCache' => 1,
+							'useUniqueCache_conf' => array(
+								'strtolower' => 1,
+								'spaceCharacter' => '-',
+							),
+						),						
+					),
+                ),
+                'blog-category' => array (
+					'cat' => array (						
+						'GETvar' => 'tx_t3blog_pi1[blogList][category]',
+						'lookUpTable' => array (
+							'table' => 'tx_t3blog_cat',
+							'id_field' => 'uid',
+							'alias_field' => 'catname',
+							'addWhereClause' => ' AND NOT deleted AND NOT hidden',
+							'useUniqueCache' => 1,
+							'useUniqueCache_conf' => array(
+								'strtolower' => 1,
+								'spaceCharacter' => '-',
+							),
+						),
+					)
+				),				
+				'blog-from' => array (
+					'from' => array(
+						'GETvar' => 'tx_t3blog_pi1[blogList][datefrom]',
+					)
+				),
+				'tags' => array (
+					'from' => array(
+						'GETvar' => 'tx_t3blog_pi1[blogList][tags]',
+					)
+				),	
+				'author' => array (
+					'from' => array(
+						'GETvar' => 'tx_t3blog_pi1[blogList][author]',
+					)
+				),	
+				'tstmp' => array (
+					'from' => array(
+						'GETvar' => 'tx_t3blog_pi1[tstmp]',
+					)
+				),			
+				'blog-to' => array (
+					to => array(
+						'GETvar' => 'tx_t3blog_pi1[blogList][dateto]',
+					)
+				),
+				'rssType' => array (
+					to => array(
+						'GETvar' => 'tx_t3blog_pi1[rss][feed_id]',
+					)
+				),
+				'rssContent' => array (
+					to => array(
+						'GETvar' => 'tx_t3blog_pi1[rss][value]',
+					)
+				),
+				'trackback' => array (
+		                array(
+						'GETvar' => 'tx_t3blog_pi1[trackback]',
+                    ),
+				),
+				'insert' => array (
+		                	array(
+						'GETvar' => 'tx_t3blog_pi1[blogList][insert]',
+						'valueMap' => array (				
+							'no' => '0',
+							'comment' => '1',
+						),
+                    ),
+					
+				),
+				'editComment' => array (
+					'from' => array(
+						'GETvar' => 'tx_t3blog_pi1[blogList][editCommentUid]',
+                    			),
+					
+				),
+				'into' => array (
+		                	array(
+						'GETvar' => 'tx_t3blog_pi1[blogList][uid]',
+                    			),
+					
+				),
+				
+------------------------------------------>8-----------------------------------

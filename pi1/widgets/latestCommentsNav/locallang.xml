@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;latestCommentsNav&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="back">back</label>
+			<label index="title">Latest Comments Nav</label>
+			<label index="latestCommentsTitle">Latest Comments</label>
+			<label index="widgetSelector.description">Latest comments widget</label>
+			<label index="author">Author: </label>
+			<label index="comments">Comments: </label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="back">Zurück</label>
+			<label index="author">Autor: </label>
+			<label index="comments">Kommentare: </label>
+			<label index="latestCommentsTitle">Letzte Kommentare</label>
+		</languageKey>
+	</data>
+</T3locallang>
