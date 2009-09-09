@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;blogList&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="title">Blog list</label>
+			<label index="widgetSelector.description">Blog list widget</label>
+			<label index="comments">Comments</label>
+			<label index="moreText">[more]</label>
+			<label index="back">back</label>
+			<label index="previous">&#60;</label>
+			<label index="next">&#62;</label>
+			<label index="comParentId">Reference</label>
+			<label index="commentauthor">Author</label>
+			<label index="commenttext">Text</label>
+			<label index="commentauthoremail">Email</label>
+			<label index="commentauthorwebsite">Website</label>
+			<label index="commenttitle">Title</label>
+			<label index="captcha">Captcha</label>
+			<label index="captchaimage"> </label>
+			<label index="subscribe">Subscribe</label>
+			<label index="subscribe_text">Notify me when someone adds another comment to this post</label>
+			<label index="commentComment">Comment this comment</label>
+			<label index="error_commentauthor">Please tell us who you are</label>
+			<label index="error_commenttitle">Please specify a title</label>
+			<label index="error_commenttext">Please leave a short comment</label>
+			<label index="error_commentauthoremail">Enter a correct email-address</label>
+			<label index="error_commentauthorwebsite">Enter a correct website URL</label>
+			<label index="error_captcha">Please insert the text of the captcha image</label>
+			<label index="errorTitle">Please fill in the fields marked with a *</label>
+			<label index="submit">Submit</label>
+			<label index="trackbackLink">Trackback link</label>
+			<label index="commentsTitle">Comments</label>
+			<label index="commentFormTitle">Your comment</label>
+			<label index="trackbacksTitle">Trackbacks</label>
+			<label index="permalinkTitle">Permalink</label>
+			<label index="tipafriendlinkText">Forward article</label>
+			<label index="backText">Back to main view</label>
+			<label index="commentAdminMailSubject">New T3BLOG comment received</label>
+			<label index="notAllowedToComment">Sorry, you are not allowed to leave a comment.</label>
+			<label index="loginLinkText">Click here to login.</label>
+			<label index="toBeApproved">Thank you for the comment. An admin will approve it as soon as possible.</label>
+			<label index="noResult">Sorry - I couldn't find any post with your specified filter. Please try another one.</label>
+			<label index="permalinkDesc">Copy this link if you want it to use as your permalink.</label>
+			<label index="trackbackLinkDesc">Copy this link into your trackback field of your own blog</label>
+			<label index="filteredByText">Currently the posts are filtered by: </label>
+			<label index="resetText">Reset this filter to see all posts.</label>
+			<label index="editLink">edit</label>
+			<label index="subscribe.confirmation">Registration for post</label>
+			<label index="subscribe.confirmationHello">Hello,</label>
+			<label index="subscribe.confirmationtext">You subscribed to receive all new comments of the post in the subject. If this is wrong, please unsubscribe with the following link:</label>
+			<label index="subscribe.newComment">New comment for post</label>
+			<label index="subscribe.salutation">Dear</label>
+			<label index="subscribe.notification">A new comment has been added to the post in the subject:</label>
+			<label index="subscribe.unsubscribe">If you wish to no more being notified about new comments, please click (or copy) the following link:</label>
+			<label index="subscribe.unsubscribe.succesfully">You unsubscribed succesfully. You will no longer receive notifications for this post.</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="comments">Kommentare</label>
+			<label index="commentFormTitle">Mein Kommentar</label>
+			<label index="back">Zurück</label>
+			<label index="previous">Vorherige</label>
+			<label index="next">Nächste</label>
+			<label index="moreText">[mehr]</label>
+			<label index="submit">Erfassen</label>
+			<label index="comParentId">Referenz</label> 
+			<label index="commentauthor">AutorIn</label>
+			<label index="commenttext">Eintrag</label>
+			<label index="commentauthoremail">E-Mail</label>
+			<label index="commentauthorwebsite">Website</label>
+			<label index="commenttitle">Titel</label>
+			<label index="captcha">Captcha</label>
+			<label index="captchaimage"> </label>
+			<label index="subscribe">Abonnieren</label>
+			<label index="subscribe_text">Ich möchte über jeden weiteren Kommentar in diesem Post benachrichtigt werden.</label>
+			<label index="commentComment">Diesen Kommentar kommentieren</label> 
+			<label index="error_commentauthor">Autor fehlt</label>
+			<label index="error_commenttitle">Titel fehlt</label>
+			<label index="error_commenttext">Text fehlt</label>
+			<label index="error_commentauthoremail">Eine gültige E-Mail fehlt</label>
+			<label index="error_commentauthorwebsite">Eine gültige URL fehlt</label>
+			<label index="error_captcha">Bitte geben Sie den Text des Captcha-Bildes ein</label>
+			<label index="errorTitle">Aus folgenden Gründen konnte der Kommentar nicht gespeichert werden</label>
+			<label index="trackbackLink">Trackback link</label>
+			<label index="commentsTitle">Kommentare</label>
+			<label index="tipafriendlinkText">weiterleiten</label>
+			<label index="commentAdminMailSubject">Neuer T3BLOG Kommentar</label>
+			<label index="notAllowedToComment">Sie haben keine Berechtigung einen Kommentar zu hinterlassen.</label>
+			<label index="backText">Zurück zur Listenansicht</label>
+			<label index="toBeApproved">Danke für den Kommentar. Wir werden Ihren Kommentar möglichst rasch anschauen und aufschalten.</label>
+			<label index="noResult">Kein Resultat gefunden.</label>
+			<label index="permalinkDesc">Kopieren Sie diesen Link um ihn als Permalink zu verwenden.</label>
+			<label index="trackbackLinkDesc">Kopieren Sie diesen Link in das Trackback Feld in Ihrem Blog.</label>
+			<label index="filteredByText">Zur Zeit wird gefiltert nach: </label>
+			<label index="resetText">Filter zurücksetzen</label>
+			<label index="editLink">editieren</label>
+			<label index="subscribe.confirmation">Registrierung für Blogpost: </label>
+			<label index="subscribe.confirmationtext">Sie haben sich angemeldet, um über neue Kommentare für den im Betreff genannten Blogpost informiert zu werden. Falls sie dies nicht wünschen, klicken sie bitte auf den folgenden Link:</label>
+			<label index="subscribe.newComment">Neuer Kommentar für den Blogpost</label>
+			<label index="subscribe.salutation">Hallo</label>
+			<label index="subscribe.notification">Ein neuer Kommentar wurde dem im Betreff genannten Postblog hinzugefügt:</label>
+			<label index="subscribe.unsubscribe">Wenn sie nicht mehr über neue Kommentare informiert werden möchten, klicken (oder kopieren) sie bitte den folgenden Link:</label>
+			<label index="subscribe.unsubscribe.succesfully">Sie haben sich erfolgreich abgemeldet. In Zukunft erhalten sie keine Benachrichtigungen für diesen Post mehr.</label>
+		
+		</languageKey>
+
+	</data>
+</T3locallang>

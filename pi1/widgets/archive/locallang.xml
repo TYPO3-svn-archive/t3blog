@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;Archive&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="back">back</label>
+			<label index="title">Archive</label>
+			<label index="widgetSelector.description">Blog archive widget</label>
+            <label index="month_1">January</label>
+            <label index="month_2">February</label>
+            <label index="month_3">March</label>
+            <label index="month_4">April</label>
+            <label index="month_5">May</label>
+            <label index="month_6">June</label>
+            <label index="month_7">July</label>
+            <label index="month_8">August</label>
+            <label index="month_9">September</label>
+            <label index="month_10">October</label>
+            <label index="month_11">November</label>
+            <label index="month_12">December</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="back">Zurück</label>
+			<label index="title">Archiv</label>
+            <label index="month_1">Januar</label>
+            <label index="month_2">Februar</label>
+            <label index="month_3">März</label>
+            <label index="month_4">April</label>
+            <label index="month_5">Mai</label>
+            <label index="month_6">Juni</label>
+            <label index="month_7">Juli</label>
+            <label index="month_8">August</label>
+            <label index="month_9">September</label>
+            <label index="month_10">Oktober</label>
+            <label index="month_11">November</label>
+            <label index="month_12">Dezember</label>
+		</languageKey>
+
+	</data>
+</T3locallang>

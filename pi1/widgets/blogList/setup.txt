@@ -1,0 +1,1209 @@
+plugin.tx_t3blog_pi1 {
+	
+	gravatarsize = 50
+	
+	image {
+		big {
+			imageLinkWrap = 1
+			imageLinkWrap {
+				enable = 1
+				wrap = <A href="javascript:close();"> | </A>
+				JSwindow = 1
+				JSwindow.newWindow = 1
+				JSwindow.expand = 17,20
+			}
+			file {
+				width= 100
+
+			}
+		}
+		small {
+			file {
+				height = 40c-100
+				width = 40c
+			}
+		}
+	}
+
+	#list
+	blogList {
+		# send email notification about received blog comments to admin ?
+		mailReceivedCommentsToAdmin = 1  
+		adminsCommentsEmail = {$plugin.tx_t3blog_pi1.blogList.adminsCommentsEmail}
+		adminsCommentMailTemplate = EXT:t3blog/pi1/widgets/blogList/adminemail.txt
+		approved = 0
+		
+		substitutePagetitle = 1
+		
+		loginPid = {$PID.feuser.loginPid}
+		
+		numberOfRecords = 5
+		maxPages = 1000
+		dateformat = %Y.%m.%d
+		
+		#gravatar | ratings: g, pg, r, or x
+		gravatar = 1
+		gravatarAtComments = 1
+		gravatarRating = g
+		
+		#captcha
+		useCaptcha = 0
+		captchaFont = x-files.ttf
+		captchaFontSize = 25
+		captchaFontColor = 000000
+		captchaEreg	= A-Za-z		
+		captchaBackgroundColor = E3E3E3 
+		captchaShowImage = 1
+		captchaBackgroundPNGImage = captcha.png
+		captchaLines = 3
+		
+		splitLongWordsInComment = 0
+		
+		#make comment fields readonly if fe-user is logged in
+		readOnly = 1
+		
+		#allow to comment comments
+		commentComments = 1
+		
+		#allow to subscribe for comments
+		subscribeForComments = 1
+		
+		#senderEmail
+		senderEmail = info@mycompany.com
+		
+		## Possible fields would be: commentauthor, commenttext, commentauthoremail, commenttitle, commentauthorwebsite, captcha
+		requiredFields = commentauthor, commenttext, commentauthoremail, commenttitle, captcha
+		
+		# if you want to use this, make sure you have installed the extension and the specified pid (see constants) points to the correct page
+		useTipAFriend = {$CONFIGURATION.useTipAFriend}
+
+		# Title of the blogentry
+		titelListItem = COA
+		titelListItem {
+			wrap = <div class="title">|</div>
+			20 = COA
+			20 {
+				wrap = <p>|<br/></p>
+				if.isTrue.field  = filtered
+				10 = TEXT
+				10 {
+					dataWrap = | {field:filtered}<br/>
+					field = text
+				}
+				20 = TEXT
+				20 {
+					field = resetText
+					typolink {
+						parameter.data = TSFE:id
+					}
+				}
+			}
+		}
+
+		# Single blog entry in listing
+		listItem = COA
+		listItem {
+			stdWrap {
+				dataWrap = <div id="blogentry{field:uid}" class="item">|</div>
+			}
+
+			# Top of a Entry. 
+			5 = COA
+			5 {
+				wrap = <div class="itemTop">|<div class="clear"><!-- clear --></div></div>
+				10 = TEXT
+				10 {
+					field = categories
+				}
+				20 = TEXT
+				20 {
+					field = date
+				}
+				30 = TEXT
+				30 {
+				
+					field = time
+				}
+			}
+			# body of a entry
+			10 = COA
+			10 {
+				wrap = <div class="itemBody">|<div class="clear"><!-- clear --></div></div>
+				10 = COA
+				10 {
+					10 = TEXT
+					10 {
+						field = title
+					}
+					20 = COA
+					20 {
+						if.isTrue.field = contentUids
+						10 < styles.content.get						
+						10.select.andWhere.dataWrap = irre_parenttable = 'tx_t3blog_post' AND irre_parentid = {field:uid} AND uid in ( {field:contentUids} )
+					}
+					30 = TEXT
+					30 {
+						field = showMore
+						if.isTrue.field = showMore
+						
+					}
+					
+				}
+			}
+			20 = COA
+			20 {
+				wrap = <div class="itemNav">|<div class="clear"><!-- clear --></div></div>
+
+				10 = TEXT
+				10 {
+					field = author
+					typolink {
+						parameter.data = TSFE:id
+						additionalParams.dataWrap = &tx_t3blog_pi1[blogList][author]={field:authorId}
+						useCacheHash = 1
+					}
+										
+				}
+
+				12 = TEXT
+				12 {
+					if.isTrue.field = email
+					wrap = <span class="authoremail">(|)</span>
+					field= email 
+				}
+
+				14 = TEXT
+				14 {
+					if.isTrue.field = tipafriendlinkText
+					wrap = <span class="blogtipafriendlink">|</span>
+					field = tipafriendlinkText
+					typolink {
+						parameter = {$PID.tipafriendform}
+						additionalParams.dataWrap = &tipUrl={field:blogUrl}
+					}
+				}
+
+				15 = TEXT
+				15 {
+					wrap = <span class="permalink">|</span>
+					field = permalink
+				}
+
+				16 = TEXT
+				16 {
+					field = comments
+				}
+				
+				#show gravatar if email is set
+				20 = TEXT
+				20 {
+						required = 1
+						if.isTrue.field = email
+						field = gravatar
+				}
+			}
+			990 = TEXT
+			990 {
+				wrap = <p>|</p>
+				field = back
+				typolink {
+					parameter.data = TSFE:id
+				}
+				required = 1
+			}
+		}
+
+		#global list wrap for bloglist
+		list = COA
+		list {
+			5 = TEXT
+			5 {
+				field = pageBrowser
+			}
+
+			10 = TEXT
+			10 {
+				wrap = <div class="blogList">|</div>
+				field = listItems
+			}
+		}
+
+		#single wrap
+		single = COA
+		single {
+			10 = COA
+			10 {
+				wrap = <div class="single">|</div>
+
+				5 = COA
+				5 {
+					wrap = <div class="itemTop">|<div class="clear"><!-- clear --></div></div>
+					10 = TEXT
+					10 {
+						field = category
+					}
+					20 = TEXT
+					20 {
+						field = date
+					}
+					30 = TEXT
+					30 {
+						field = time
+					}
+				}
+
+				10 = COA
+				10 {
+					wrap = <div class="itemBody">|<div class="clear"><!-- clear --></div></div>
+					10 = COA
+					10 {
+						10 = TEXT
+						10 {
+						
+							field = title
+						}
+						
+						
+						20 < styles.content.get
+						20.select.andWhere.dataWrap = irre_parenttable = 'tx_t3blog_post' AND irre_parentid = {field:uid}
+					}
+				}
+								
+				
+				15 = COA
+				15 {
+					wrap = <div class="itemNav">|<div class="clear"><!-- clear --></div></div>
+					10 = TEXT
+					10 {
+						wrap = <span class="author">|</span>
+						field = author
+						typolink {
+							parameter.data = TSFE:id
+							additionalParams.dataWrap = &tx_t3blog_pi1[blogList][author]={field:authorId}
+							useCacheHash = 1
+						}						
+					}
+
+					12 = TEXT
+					12 {
+						if.isTrue.field = email
+						wrap = <span class="authoremail">(|)</span>
+						field = email						
+					}
+
+					15 = TEXT
+					15 {
+						required = 1
+						if.isTrue.field = email
+						field = gravatar
+					}
+
+					16 = TEXT
+					16 {
+						if.isTrue.field = tipafriendlinkText
+						wrap = <span class="blogtipafriendlink">|</span>
+						field = tipafriendlinkText
+						typolink {
+							parameter = {$PID.tipafriendform}
+							additionalParams.dataWrap = &tipUrl={field:blogUrl}
+						}
+					}
+					25 = TEXT
+					25 {
+						wrap = <span class="permalink">|</span>
+						field = permalink
+					}
+					30 = TEXT
+					30 {
+						wrap = <span class="trackback">|</span>
+						field = trackbackLink
+
+					}
+
+
+				}
+
+
+			}
+
+			# listing of trackbacks and comments
+			30 = TEXT
+			30 {
+				field = trackbacks
+			}
+
+			40 = TEXT
+			40 {
+				field = comments
+			}
+
+			50 = TEXT
+			50 {
+				if.isTrue.field = message
+				wrap = <p class="blogCommentMessage">|</p>
+				field = message	
+			}
+			
+			60 = TEXT
+			60 {
+				field = addcomment
+			}
+
+			990 = TEXT
+			990 {
+				wrap = <p>|</p>
+				field = back
+				typolink {
+					parameter.data = TSFE:id
+				}
+			}
+		}
+		#Navigation in singleview (previous, back, next)
+		singleNavigation = COA
+		singleNavigation {
+			wrap = <div id="singleNavigation">|</div>
+
+			10 = TEXT
+			10 {
+				wrap = <div class="previous">|&nbsp;</div>
+				field = previous
+			}
+
+			20 = TEXT
+			20 {
+				wrap = <div class="backtolist">|</div>
+				field = backText
+				typolink {
+					parameter.field = backId
+				}
+
+			}
+
+			30 = TEXT
+			30 {
+				wrap = <div class="next">|&nbsp;</div>
+				field = next
+			}
+
+		}
+
+
+
+		##################################
+		#SINGLE elements
+
+		titleLink = COA
+		titleLink {
+			#load register
+			1 = LOAD_REGISTER
+			1 {
+				year {
+					field = date
+					strftime = %Y
+				}
+				month {
+					field = date
+					strftime = %m
+				}
+				day {
+					field = date
+					strftime = %d
+				}
+			}
+			10 = TEXT
+			10 {
+				wrap = <h3>|</h3>
+				field = title
+				typolink {
+					parameter.data = TSFE:id
+					useCacheHash = 1
+					additionalParams.dataWrap = &tx_t3blog_pi1[blogList][showUid]={field:uid}&tx_t3blog_pi1[blogList][year]={register:year}&tx_t3blog_pi1[blogList][month]={register:month}&tx_t3blog_pi1[blogList][day]={register:day}
+				}
+			}
+
+			99 = RESTORE_REGISTER
+		}
+		
+		moreLink = COA
+		moreLink {
+			#load register
+			1 = LOAD_REGISTER
+			1 {
+				year {
+					field = date
+					strftime = %Y
+				}
+				month {
+					field = date
+					strftime = %m
+				}
+				day {
+					field = date
+					strftime = %d
+				}
+			}
+			10 = TEXT
+			10 {
+				wrap = <span class="more">|</span>
+				field = title
+				typolink {
+					parameter.data = TSFE:id
+					useCacheHash = 1
+					additionalParams.dataWrap = &tx_t3blog_pi1[blogList][showUid]={field:uid}&tx_t3blog_pi1[blogList][year]={register:year}&tx_t3blog_pi1[blogList][month]={register:month}&tx_t3blog_pi1[blogList][day]={register:day}
+				}
+			}
+
+			99 = RESTORE_REGISTER
+		}
+
+		#Formate the date
+		date  = TEXT
+		date {
+			wrap = <div class="date">|</div>
+			field = date
+			strftime = %d.%m.%Y
+			required = 1
+		}
+		#Formate the time
+		time = TEXT
+		time {
+			wrap = <div class="time">|</div>
+			field = time
+			strftime = %R
+			required = 1
+		}
+		#formate a textrow
+		textRow = COA
+		textRow {
+		#load register
+			1 = LOAD_REGISTER
+			1 {
+				year {
+					field = date
+					strftime = %Y
+				}
+				month {
+					field = date
+					strftime = %m
+				}
+				day {
+					field = date
+					strftime = %d
+				}
+			}
+			10 = TEXT
+			10 {
+				wrap = <p>|</p>
+				field = text
+				required = 1
+				parseFunc < lib.parseFunc_RTE
+				parseFunc {
+					nonTypoTagStdWrap.encapsLines {
+        				nonWrappedTag =
+        			}
+        		}
+			}
+			20 = TEXT
+			20 {
+				wrap = <p>|</p>
+				field = moreText
+				required = 1
+				typolink {
+					parameter.data = TSFE:id
+					useCacheHash = 1
+					additionalParams.dataWrap = &tx_t3blog_pi1[blogList][showUid]={field:uid}&tx_t3blog_pi1[blogList][year]={register:year}&tx_t3blog_pi1[blogList][month]={register:month}&tx_t3blog_pi1[blogList][day]={register:day}
+				}
+			}
+
+			99 = RESTORE_REGISTER
+		}
+
+		#formates the text of a blog element.
+		textFormat = TEXT
+		textFormat {
+			#wrap = <p>|</p>
+			field = text
+			required = 1
+			parseFunc < lib.parseFunc_RTE
+		}
+
+		#Formate of a comments link (comments (#))
+		commentsLink = COA
+		commentsLink {
+		#load register
+			1 = LOAD_REGISTER
+			1 {
+				year {
+					field = date
+					strftime = %Y
+				}
+				month {
+					field = date
+					strftime = %m
+				}
+				day {
+					field = date
+					strftime = %d
+				}
+			}
+			10 = TEXT
+			10 {
+				wrap = <span class="comments">|</span>
+				value = {field:commentText} {field:commentsNr}
+				insertData = 1
+				typolink {
+					parameter.data = TSFE:id
+					useCacheHash = 1
+					additionalParams.dataWrap = &tx_t3blog_pi1[blogList][showUid]={field:uid}&tx_t3blog_pi1[blogList][year]={register:year}&tx_t3blog_pi1[blogList][month]={register:month}&tx_t3blog_pi1[blogList][day]={register:day}
+					section = commentList
+				}
+				required = 1
+			}
+
+			99 = RESTORE_REGISTER
+		}
+
+		#category link wrap
+		catList = TEXT
+		catList {
+			wrap = <div class="categories">|</div>
+			field = catLink
+
+		}
+
+		#a single category link wrap
+		catLink= TEXT
+		catLink{
+			wrap = |
+			field = text
+			typolink {
+				parameter.data = TSFE:id
+				useCacheHash = 1
+				additionalParams.dataWrap = &tx_t3blog_pi1[blogList][category]={field:categories}
+			}
+		}
+
+		#add comment link wrap, for ajax comment from
+		addcommentlink = TEXT
+		addcommentlink {
+			dataWrap = <a href="{field:urlforlink}" onclick="openCommentForm({field:url}); return false;" title="{field:name}">{field:name}</a>
+		}
+
+		#author wrap
+		author = TEXT
+		author {
+			wrap = <span class="author">|</span>
+			field = name
+		}
+
+		#gravatar wrap
+		gravatar = TEXT
+		gravatar {
+			field = name
+		}
+
+		noResultWrap = TEXT
+		noResultWrap {
+			wrap = <p>|</p>
+			field = text
+		}
+		
+		mediaField < plugin.tx_t3blog_pi1.global.mediaField
+		imgField < plugin.tx_t3blog_pi1.global.imgField
+		imgFieldList < plugin.tx_t3blog_pi1.global.imgFieldList
+		#pageBrowser < plugin.tx_t3blog_pi1.global.pageBrowser
+		#pageBrowserElement < plugin.tx_t3blog_pi1.global.pageBrowserElement
+		
+		
+		pageBrowser = TEXT 
+		pageBrowser {
+			wrap = <ul class="pageBrowser">|</ul>
+			field = pbitems
+		}	
+		
+		pageBrowserElement = COA
+		pageBrowserElement {
+			5 = TEXT
+			5 {
+				wrap = <li class="|">
+				field = pbitemclass
+			}	
+			
+			10 = TEXT
+			10 {
+				wrap = |</li>
+				field = link
+			}
+		}
+	
+
+		#single tile link for navigation
+		singleNavTitleLink = COA
+		singleNavTitleLink {
+			#load register
+			1 = LOAD_REGISTER
+			1 {
+				year {
+					field = date
+					strftime = %Y
+				}
+				month {
+					field = date
+					strftime = %m
+				}
+				day {
+					field = date
+					strftime = %d
+				}
+			}
+
+			10 = TEXT
+			10 {
+				field = title
+				typolink {
+					parameter.data = TSFE:id
+					useCacheHash = 1
+					title.field = longTitle
+					additionalParams.dataWrap = &tx_t3blog_pi1[blogList][showUid]={field:uid}&tx_t3blog_pi1[blogList][year]={register:year}&tx_t3blog_pi1[blogList][month]={register:month}&tx_t3blog_pi1[blogList][day]={register:day}
+				}
+			}
+
+			99 = RESTORE_REGISTER
+		}
+
+		#avatar img wrap
+		avatarImg = USER
+		avatarImg {
+			userFunc = tx_typoscripttools_pi1->main
+			debug = 0
+			foreign_table = be_users
+			foreign_uid.field = uid
+			action = damGetReferencedFiles
+			//extraMediaFields = realName
+			MM_ident = tx_t3blog_avatar
+			mediaItem = CASE
+			mediaItem {
+				key.field = file_type
+
+				default = TEXT
+				default {
+					wrap = |
+					filelink {
+						path.dataWrap = {field:file_path}{field:file_name}
+						labelStdWrap.field = title
+						icon = 1
+						jumpurl = 1
+						jumpurl.secure = 1
+					}
+				}
+
+				jpg = IMAGE
+				jpg {
+					wrap = |
+					file {
+						import.dataWrap = {field:file_path}{field:file_name}
+						maxW = 50
+					}
+					altText.field = be_users.realName
+					imageLinkWrap = 0
+				}
+
+				gif = IMAGE
+				gif {
+					wrap = |
+					file {
+						import.dataWrap = {field:file_path}{field:file_name}
+						maxW = 50
+					}
+					altText.field = be_users.realName
+					imageLinkWrap = 0
+				}
+				png = IMAGE
+				png {
+					wrap = |
+					file {
+						import.dataWrap = {field:file_path}{field:file_name}
+						maxW = 50
+					}
+					altText.field = be_users.realName
+					imageLinkWrap = 0
+				}
+			}
+
+			mediaList = TEXT
+			mediaList {
+				field = mediaItems
+				wrap = |
+			}
+		}
+
+		###################
+		#	Comment Form
+		###################
+		#comment error wrap
+		errorWrap = TEXT
+		errorWrap {
+			wrap = <li>|</li>
+			field = value
+			required = 1
+		}
+
+		#requiredField wrap
+		requiredFieldMarkerWrap = TEXT
+		requiredFieldMarkerWrap {
+			wrap = <span class="requiredField">|</span>
+			field = marker
+			required = 1
+		}
+
+		#Comment form
+		commentForm = COA
+		commentForm {
+			5 = COA
+			5 {
+				wrap = <div class="formHeader" id="comment">|</div>
+/*
+	if this should be used, use the ext20 script
+*/
+				5 = TEXT
+				5 {
+					wrap = <h3 onmousedown="dragstart(document.getElementById('commentForm'))" onmouseup="dragstop();">|</h3>
+					value = Comment this Post
+					if.isTrue.field = isAjax
+				}
+
+				10 = TEXT
+				10 {
+					wrap = <div class="closebutton"><a href="#" onclick="document.getElementById('commentForm').style.display='none';return false;">|</a></div>
+					field = closeicon
+					if.isTrue.field = isAjax
+				}
+
+			}
+
+			6 = TEXT
+			6 {
+				wrap = <h6 class="commentError" >|</h6>
+				field = errorTitle
+				required = 1
+			}
+			7 = TEXT
+			7 {
+				wrap = <ul class="error commentError">|</ul>
+				field = errorMsg
+				required = 1
+			}
+
+			10 = COA
+			10 {
+				stdWrap.dataWrap = <div class="mailform"><h4>{field:commentTitle}</h4><form action="{field:action}#commentFormNonAjax" method="post">|</form></div>
+				5 = TEXT
+				5 {
+					if.isTrue.field = editUid
+					wrap = <input type="hidden" id="editUid" name="tx_t3blog_pi1[blogList][editUid]" value="|" />
+					field = editUid
+				}
+				10 = COA
+				10 {
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+
+					5 = TEXT 
+		            5 { 
+		 
+ 		            	wrap = <div class="formElement text"><div class="formLabel"><label for="commentauthor" >|</label></div> 
+ 		                field = comParentId_label 
+ 		                required = 1 
+ 		            } 
+ 		                                         
+ 		            10 = TEXT 
+ 		            10 { 
+ 		                dataWrap = <div class="formField">{field:parentTitle}<input type="hidden" id="comParentId" class="text" name="tx_t3blog_pi1[blogList][comParentId]" value=" | " /></div><div class="formClear"><!-- clear --></div></div> 
+ 		                field = comParentId 
+ 		                required = 1 
+ 		            } 
+ 		                                                 
+ 		            15 = TEXT 
+ 		            15 { 
+ 		 
+	                   wrap = <div class="formLabel"><label for="commentauthor" >|</label></div> 
+	                   field = commentauthor_label 
+	                }
+
+					20 = TEXT
+					20 {
+						dataWrap = <div class="formField"><input type="text" id="commentauthor" class="text" name="tx_t3blog_pi1[blogList][commentauthor]" {field:readOnly} value=" | " /></div>
+						field = commentauthor
+					}
+				}
+
+				20 = COA
+				20 {
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap =  <div class="formLabel"><label for="commentauthoremail"> |</label></div>
+						field = commentauthoremail_label
+					}
+
+					10 = TEXT
+					10 {
+						dataWrap = <div class="formField"><input type="text" class="text" name="tx_t3blog_pi1[blogList][commentauthoremail]" {field:readOnly} value = " | " /></div>
+						field = commentauthoremail
+					}
+
+
+				}
+
+
+				30 = COA
+				30 {
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap =  <div class="formLabel"><label for="commentauthorwebsite"> |</label></div>
+						field = commentauthorwebsite_label
+					}
+
+					10 = TEXT
+					10 {
+						dataWrap = <div class="formField"><input type="text" class="text" name="tx_t3blog_pi1[blogList][commentauthorwebsite]" {field:readOnly} value = " | " /></div>
+						field = commentauthorwebsite
+					}
+
+
+				}
+
+				40 = COA
+				40 {
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap =  <div class="formLabel"><label for="commenttitle"> |</label></div>
+						field = commenttitle_label
+					}
+
+					10 = TEXT
+					10 {
+						wrap = <div class="formField"><input type="text" class="text" name="tx_t3blog_pi1[blogList][commenttitle]" value = " | " /></div>
+						field = commenttitle
+					}
+
+
+				}
+
+				50 = COA
+				50 {
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap =  <div class="formLabel"><label for="commenttext"> |</label></div>
+						field = commenttext_label
+					}
+
+					10 = TEXT
+					10 {
+						wrap = <div class="formField"><textarea class="text" name="tx_t3blog_pi1[blogList][commenttext]" >|</textarea></div>
+						field = commenttext
+					}
+				}
+				
+				#captchaimage
+				60 = COA
+				60 {
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap =  <div class="formLabel"><label for="commenttext">&nbsp;|</label></div>
+						field = captchaimage_label
+						required = 1
+					}
+
+					10 = TEXT
+					10 {
+						wrap = <div class="formField">|</div>
+						field = captchaimage
+						required = 1
+					}
+				}
+				
+				#captchatext
+				70 = COA
+				70 {
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap =  <div class="formLabel"><label for="commenttext">|</label></div>
+						field = captcha_label
+						required = 1
+					}
+
+					10 = TEXT
+					10 {
+						wrap = <div class="formField"><input type="text" class="text" name="|" value = "" /></div>
+						field = captcha
+						required = 1
+					}
+				}
+				
+				#subscribe
+				80 = COA
+				80 {
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap =  <div class="formLabel"><label for="commenttext">|</label></div>
+						field = subscribe_label
+						required = 1
+					}
+
+					10 = TEXT
+					10 {
+						dataWrap = <div class="formField"><input type="checkbox" name="tx_t3blog_pi1[blogList][subscribe]" | value="1" style="height: 10px; width: 10px !important; margin-right: 5px;" />{field:subscribe_text}</div>
+						field = subscribe
+						required = 1
+					}
+				}
+
+
+
+				90 = COA
+				90 {
+					wrap = <div class="formElement">|<div class="formClear"><!-- clear --></div></div>
+
+					5 = TEXT
+					5 {
+						wrap = <div class="formLabel"><!-- empty --></div><div class="formField"><input type="submit" class="button" name="tx_t3blog_pi1[blogList][commentsubmit]" value=" | " /></div>
+						field = submit_label
+					}
+				}
+			}
+		}
+
+		commentList = COA
+		commentList {
+			wrap = <div id="commentList">|</div>
+
+			5 = COA
+			5 {
+				wrap = <ul id="commentListTitle">|</ul>
+
+				5 = TEXT
+				5 {
+					wrap = <li class="start">|</li>
+					value = &nbsp;
+				}
+
+				10 = TEXT
+				10 {
+					dataWrap = <li class="middle"><span class="commentsNr">{field:nrComments}</span>&nbsp;|</li>
+					field = title
+				}
+
+				15 = TEXT
+				15 {
+					wrap = <li class="end">|</li>
+					value = &nbsp;
+				}
+
+			}
+
+			6 = COA
+			6 {
+				wrap = <div class="commentListListing">|</div>
+
+				10 = TEXT
+				10 {
+					field = comments
+				}
+				20 = TEXT
+				20 {
+					field = pageBrowser
+				}
+			}
+		}
+
+		comment = COA
+		comment {
+			stdWrap {
+				dataWrap = <div class="item {field:odd}" id="comment_{field:uid}" style="margin-left:{field:margin}">|</div>
+			}
+			
+			5 = TEXT
+			5 {	
+				
+				dataWrap        = <div class="commentComments">|</div><div class="clear"></div> 
+ 	            		field           	= parentcom
+ 	            		required        = 1
+				typolink { 
+ 		                        parameter.field = blog_uid
+ 		                        useCacheHash = 1 	
+ 		                        additionalParams.dataWrap = &tx_t3blog_pi1[blogList][comParentId]={field:uid}&tx_t3blog_pi1[blogList][comParentTitle]={field:title}&tx_t3blog_pi1[blogList][showUid]={field:fk_post}&tx_t3blog_pi1[blogList][year]={field:blog_year}&tx_t3blog_pi1[blogList][month]={field:blog_month}&tx_t3blog_pi1[blogList][day]={field:blog_day}
+								section.dataWrap = comment 
+ 		        }	
+				 
+				 		
+			}
+			
+			10 = TEXT
+			10 {
+				value (
+
+						<div class="commentTopNav">
+							<div class="author">{field:gravatar}{field:author}</div>
+							<div class="date">{field:date}</div>
+						</div>
+						<div class="commentBody">
+							<h5>{field:title}</h5>
+
+							<p>{field:text}</p>
+						</div>
+				)
+				# {field:email}
+				insertData = 1
+			}
+			20 = TEXT
+			20 {
+				wrap = <div class="commentFooter">|</div>
+				field = website
+				typolink {
+					parameter.field = website
+				}
+			}
+			
+			30 = COA
+			30 {
+				if.isTrue.field = edit
+				1 = LOAD_REGISTER
+				1 {
+					year {
+						field = entrydate
+						strftime = %Y
+					}
+					month {
+						field = entrydate
+						strftime = %m
+					}
+					day {
+						field = entrydate
+						strftime = %d
+					}
+				}
+				10 = TEXT
+				10 {
+					wrap = <div class="editComment">|</div> 
+					field = edit
+					typolink {
+						parameter.data = TSFE:id
+						useCacheHash = 1
+						additionalParams.dataWrap = &tx_t3blog_pi1[blogList][showUid]={field:blogUid}&tx_t3blog_pi1[blogList][editCommentUid]={field:uid}&tx_t3blog_pi1[blogList][year]={register:year}&tx_t3blog_pi1[blogList][month]={register:month}&tx_t3blog_pi1[blogList][day]={register:day}
+					}
+				}	
+				99 = RESTORE_REGISTER					
+			}
+
+		}
+		
+		
+		noCommentAllowedWrap = COA
+		noCommentAllowedWrap {
+			wrap = <p>|</p>
+			10 = TEXT 
+			10 {
+				field = text
+			}
+			20 = TEXT
+			20 {
+				if.isTrue.field = loginPid
+				field = loginLinkText
+				typolink {
+					parameter.field = loginPid					
+					additionalParams.dataWrap = &redirect_url={field:redirect_url}
+				}
+			}
+		}
+		
+		####################
+		# trackback listing
+		####################
+		trackbackList = COA
+		trackbackList {
+			wrap = <div id="trackbackList">|</div>
+			if.isTrue.field = trackbacks
+			5 = COA
+			5 {
+				wrap = <ul id="trackbackListTitle">|</ul>
+
+				5 = TEXT
+				5 {
+					wrap = <li class="start">|</li>
+					value = &nbsp;
+				}
+
+				10 = TEXT
+				10 {
+					wrap = <li class="middle">|</li>
+					field = title
+				}
+
+				15 = TEXT
+				15 {
+					wrap = <li class="end">|</li>
+					value = &nbsp;
+				}
+
+			}
+
+			6 = COA
+			6 {
+				wrap = <div class="trackbackListListing">|</div>
+
+				10 = TEXT
+				10 {
+					field = trackbacks
+				}
+				20 = TEXT
+				20 {
+					field = pageBrowser
+				}
+			}
+		}
+
+		#single trackback entry wrap
+		trackback = COA
+		trackback {
+			stdWrap {
+				dataWrap = <div class="item {field:odd}" id="trackback_{field:uid}">|</div>
+			}
+			10 = TEXT
+			10 {
+				value (
+
+						<div class="trackbackTopNav">
+							<div class="author">{field:author}</div>
+							<div class="date">{field:date}</div>
+						</div>
+
+				)
+				insertData = 1
+			}
+			20 = COA
+			20 {
+				wrap = <div class="trackbackBody">|</div>
+				10 = TEXT
+				10 {
+					wrap = <h5>|</h5>
+					field = title
+					typolink {
+						parameter.field = url
+					}
+				}
+				20 = TEXT
+				20 {
+					wrap = <p>|</p>
+					field = text
+				}
+			}
+
+		}
+	}
+}

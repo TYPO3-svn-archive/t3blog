@@ -1,0 +1,34 @@
+# pi2 setup
+# pi2 copies all the widgets from pi1
+# this way pi2 can do everything pi1 can do - but you can individually place each widget on your website
+
+
+# include the widget templates/configurations
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/latestCommentsNav/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/latestPostNav/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/blogList/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/calendar/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/categories/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/blogrollList/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/archive/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/rss/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/rss/static/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/socialBookmarks/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/tagCloud/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/searchBox/setup.txt">
+
+
+plugin.tx_t3blog_pi2 {
+	calendar		< plugin.tx_t3blog_pi1.calendar
+	categories		< plugin.tx_t3blog_pi1.categories
+	blogList		< plugin.tx_t3blog_pi1.blogList
+	feed			< plugin.tx_t3blog_pi1.feed
+	latestPostNav	< plugin.tx_t3blog_pi1.latestPostNav
+	blogrollList 	< plugin.tx_t3blog_pi1.blogrollList
+	latestCommentsNav 	< plugin.tx_t3blog_pi1.latestCommentsNav
+	archive 		< plugin.tx_t3blog_pi1.archive
+	rss 			< plugin.tx_t3blog_pi1.rss
+	socialBookmarks < plugin.tx_t3blog_pi1.socialBookmarks
+	tagCloud		 < plugin.tx_t3blog_pi1.tagCloud
+	searchBox		 < plugin.tx_t3blog_pi1.searchBox
+}

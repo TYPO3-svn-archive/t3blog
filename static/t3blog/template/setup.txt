@@ -1,0 +1,202 @@
+## Navigation of the blog sub pages
+temp.navigation = COA
+temp.navigation {
+		10 = TEXT
+		10 {
+			value = navigation
+			wrap = <h3 id="mainNavigationLabel" class="hidden">|</h3>
+		}
+			
+		20 = HMENU
+		20 {
+			stdWrap.wrap = <ul id="mainNavigation">|</ul>
+			stdWrap.required = 1
+			1 = TMENU
+			1 {
+				expAll = 1
+				noBlur = 1
+				
+				NO {
+					wrapItemAndSub = <li class="first">|</li>|*|<li>|</li>|*|<li class="last">|</li>
+					stdWrap.htmlSpecialChars  = 1 
+				
+					#Makes Pagetype exturl target _blank
+					ATagParams.cObject = CASE
+					ATagParams.cObject {
+						key.field = doktype
+						default = TEXT
+						default {
+							wrap = class="first" |*| |*|
+						}
+						3 = TEXT
+						3 {
+							wrap = class="first" target="_blank" |*| target="_blank"
+						}
+					}				
+				}
+				
+				CUR < .NO
+				CUR = 1
+				CUR {
+					wrapItemAndSub = <li class="cur curFirst first">|</li>|*|<li class="cur">|</li>|*|<li class="cur curLast last">|</li>
+					ATagParams >
+					ATagParams = class="cur"
+				}
+				
+				CURIFSUB < .NO
+	  			CURIFSUB = 1 
+	  			CURIFSUB {
+	  				wrapItemAndSub = <li class="curSub curSubFirst cur first">|</li>|*|<li class="curSub cur">|</li>|*|<li class="curSub cur curSubLast last">|</li>
+	  				ATagParams >
+	  				ATagParams = class="cur curSub"
+	  			}
+				
+				ACT < .NO
+				ACT = 1
+				ACT {
+					wrapItemAndSub =  <li class="act actFirst first">|</li>|*|<li class="act">|</li>|*|<li class="act actLast last">|</li>
+					ATagParams >
+					ATagParams = class="act"
+				}
+			}
+			
+			# Second Level Navigation
+			2 < .1
+			2 {
+				wrap = <ul>|</ul>
+			}
+			
+			# Third Level Navigation
+			3 < .2
+	}
+}
+
+
+
+
+
+
+# BLOG layout
+plugin.tx_t3blog_pi1.layoutBlog = COA
+plugin.tx_t3blog_pi1.layoutBlog {
+	wrap = <div class="t3blog">|<div class="clear"><!-- --></div></div>
+
+	#Pagetitle
+	1  = TEXT
+	1 {		
+		value = {$TEXT.pagetitle}
+		wrap = <h1 id="title">|</h1>
+		typolink.parameter = {$PID.startpage}		
+	}
+
+	#Header
+	10 = COA
+	10 {
+		wrap = <div id="header">|</div>
+		## Now load the navigation
+		10 < temp.navigation
+
+		# TagClouds
+		20 = COA
+		20 {
+			stdWrap = |
+			required = 1
+			10 = TEXT
+			10 {
+				field = tagCloud
+			}
+		}
+		30 = TEXT
+		30 {
+			wrap = <div id="header_bottom">|</div>
+			value = <!--snowflake.ch-->
+		}
+	}
+
+	#left Content
+	20 = COA
+	20 {
+		stdWrap {
+			wrap = <div id="col1">|</div>
+			required = 1
+		}
+			10 = TEXT
+		10 {
+			value = <!-- -->
+		}
+	}
+	#left Content
+	#CONTENT
+	30 = COA
+	30 {
+		stdWrap {
+			wrap = <div id="col2" class="content">|</div>
+			required = 1
+		}
+		10 = TEXT
+		10 {
+			field = blogList
+		}
+		30 = COA
+		30 {
+			stdWrap {
+				prepend = TEXT
+				prepend {
+					value = navigation
+					wrap = <hr class="hidden" /><h2 id="mainContentLabel" class="hidden">|</h2>
+				}
+				wrap = <div id ="mainContent" class="content">|</div>
+			}
+			20 < styles.content.get
+			20.select.andWhere = irre_parenttable = '' AND irre_parentid = 0
+		}
+	}
+	#right Content
+	40 = COA
+	40 {
+		stdWrap {
+			wrap = <div id="col3">|</div>
+			required = 1
+		}
+		5 = TEXT
+		5 {
+			field = searchBox
+		}
+		10 = TEXT
+		10 {
+			field = feed
+		}
+		20 = TEXT
+		20 {
+			field = calendar
+		}
+		30 = TEXT
+		30 {
+			field = latestPostNav
+		}
+		40 = TEXT
+		40 {
+			field = categories
+		}
+		50 = TEXT
+		50 {
+			field = blogrollList
+		}
+		60 = TEXT
+		60 {
+			field = latestCommentsNav
+		}
+		70 = TEXT
+		70 {
+			field = archive
+		}
+		80 = TEXT
+		80 {
+			field = rss
+		}
+		90 = TEXT
+		90 {
+			field = socialBookmarks
+		}
+	}
+}

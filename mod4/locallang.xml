@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for module &quot;txt3blogM4&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="moduleTitle">T3BLOG - TYPO3 based blogging</label>
+			<label index="title">T3BLOG</label>
+			<label index="selABlog">Please select a blog</label>
+			<label index="sectionTitle">Category management</label>
+			<label index="newCategory">Create a new category</label>
+		</languageKey>
+	</data>
+</T3locallang>

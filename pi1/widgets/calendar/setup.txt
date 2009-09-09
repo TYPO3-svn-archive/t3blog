@@ -1,0 +1,33 @@
+plugin.tx_t3blog_pi1 {
+	calendar {
+		calendaroutput = COA
+		calendaroutput {
+			10 = TEXT
+			10 {
+				wrap = <div id="calendar">|</div>
+				field = calendar
+			}
+		}
+
+		dateLink = TEXT
+		dateLink {
+			wrap = |
+			field = day
+			typolink {
+				useCacheHash = 1
+				parameter.field = blogUid
+				additionalParams.dataWrap = &tx_t3blog_pi1[blogList][datefrom]={field:date}&tx_t3blog_pi1[blogList][dateto]={field:date}
+			}
+		}
+	
+		navLink = TEXT
+		navLink {
+			typolink {
+				useCacheHash = 1
+				parameter.data = TSFE:id
+				additionalParams.dataWrap = &tx_t3blog_pi1[blogList][month]={field:month}&tx_t3blog_pi1[blogList][year]={field:year} 
+				returnLast = url
+			}
+		}
+	}
+}

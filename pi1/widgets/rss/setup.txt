@@ -1,0 +1,104 @@
+plugin.tx_t3blog_pi1 {
+	rss {
+		# generator
+		generator = Blog RSS export running on TYPO3
+		
+	    # title of your feed, maximum 100 chars
+	    feedTitle = T3BLOG RSS-feed
+	
+	    # Copyright notice
+	    feedCopyright = 2008 Your Company
+	
+	    # Who is the person in charge of the feed-content (email address)
+	    feedManagingEditor = test person
+	
+	    #  Who is the technical contact for problems with the newsfeed (email address)
+	    feedWebMaster =  test@testing.test
+	    
+	    # main URL to include in your feed, maximum 500 chars (just for user information)
+	    feedLink = http://www.mycompany.com
+	
+	    # language in which the information is written, optional for RSS 2.0, required for 0.91
+	    feedLanguage < config.language
+	
+	    # description of your feed, maximum 500 chars
+	    feedDescription = Latest infos of T3BLOG
+	
+	    # image included in the feed, optional for RSS 2.0, required for RSS 0.91
+	    feedImage = http://www.mycompany.com/typo3conf/ext/t3blog/icons/rss.png
+	
+	    # shorten text to this length in XML item description, default=200, maximum 500 in RSS 0.91
+	    feedItemDescLength = 200
+	
+	    # how many items to show in XML feed, default=all, maximum of 15 for RSS 0.91
+	    postItemCount = 5
+	
+	    # SQL sorting by field name
+	    postItemOrderBy = crdate DESC	
+		
+  		list = COA
+		list {
+			5 = TEXT
+			5 {
+				wrap = <h3>|</h3>
+				field = title
+				
+			}
+			10 = COA
+			10 {
+				wrap = <div class="rss_post">|</div>
+				10 = TEXT
+				10 {
+					dataWrap = <img src="{field:src091}" alt="RSS 0.91" />
+				}
+				20 = TEXT
+				20 {
+					field = postLinkTitle
+					typolink {
+						parameter.field = pid
+						additionalParams.dataWrap = &type=100&tx_t3blog_pi1[rss][feed_id]={field:feed091}&tx_t3blog_pi1[rss][value]={field:valuePost091}
+						target = _blank
+					}
+				}
+			}
+			20 = TEXT
+			20 {
+				wrap = <div class="rss_comment">|</div>
+				field = commentLinkTitle
+				typolink {
+					parameter.field = pid
+					additionalParams.dataWrap = &type=100&tx_t3blog_pi1[rss][feed_id]={field:feed091}&tx_t3blog_pi1[rss][value]={field:valueComments091}
+					target = _blank
+				}
+			}
+			30 = COA
+			30 {
+				wrap = <div class="rss_post">|</div>
+				10 = TEXT
+				10 {
+					dataWrap = <img src="{field:src20}" alt="RSS 2.0" />
+				}
+				20 = TEXT
+				20 {
+					field = postLinkTitle
+					typolink {
+						parameter.field = pid
+						additionalParams.dataWrap = &type=100&tx_t3blog_pi1[rss][feed_id]={field:feed20}&tx_t3blog_pi1[rss][value]={field:valuePost20}
+						target = _blank
+					}
+				}
+			}
+			40 = TEXT
+			40 {
+				wrap = <div class="rss_comment">|</div>
+				field = commentLinkTitle
+				typolink {
+					parameter.field = pid
+					additionalParams.dataWrap = &type=100&tx_t3blog_pi1[rss][feed_id]={field:feed20}&tx_t3blog_pi1[rss][value]={field:valueComments20}
+					target = _blank
+				}
+			}
+			
+		}
+	}
+}
