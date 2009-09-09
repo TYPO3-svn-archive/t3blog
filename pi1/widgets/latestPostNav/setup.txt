@@ -1,0 +1,84 @@
+plugin.tx_t3blog_pi1 {
+	latestPostNav {
+		numberOfItems = 4
+		list = COA
+		list {
+			wrap = <div id="latestPosts">|</div>
+			10 = TEXT
+			10 {
+				wrap = <h3>|</h3>
+				field=  title
+			}
+			20 = TEXT
+			20 {
+				wrap = <dl class="latestPostList">|</dl>
+				field = listItems
+			}
+			
+			30 = TEXT
+			30 {
+				wrap= |
+				field = text
+				crop = 60 | ... | 1
+				typolink {
+					parameter.field = blogUid
+					useCacheHash = 1
+					title.stdWrap.dataWrap = &lt;{field:author}&gt; ({field:comments})
+					additionalParams.dataWrap = &tx_t3blog_pi1[blogList][showUid]={field:uid}&tx_t3blog_pi1[blogList][year]={register:year}&tx_t3blog_pi1[blogList][month]={register:month}&tx_t3blog_pi1[blogList][day]={register:day}
+				}
+			}
+		}
+		
+		listItem = COA
+		listItem {
+			10 = TEXT
+			10 {
+				wrap = <dt>|</dt>
+				field = title
+			}
+			20 = TEXT
+			20 {
+				wrap = <dd>|</dd>
+				field = date
+				strftime = %d.%m.%Y %R
+			}		
+		}
+	
+		link = COA
+		link {
+			#load register
+			1 = LOAD_REGISTER
+			1 {
+				year {
+					field = date
+					strftime = %Y
+				}
+				month {
+					field = date
+					strftime = %m
+				}
+				day {
+					field = date
+					strftime = %d
+				}
+			}
+			
+			10 = TEXT
+			10 {
+				wrap= |
+				field = text
+				crop = 60 | ... | 1
+				typolink {
+					parameter.field = blogUid
+					useCacheHash = 1
+					title.stdWrap.dataWrap = &lt;{field:author}&gt; ({field:comments})
+					additionalParams.dataWrap = &tx_t3blog_pi1[blogList][showUid]={field:uid}&tx_t3blog_pi1[blogList][year]={register:year}&tx_t3blog_pi1[blogList][month]={register:month}&tx_t3blog_pi1[blogList][day]={register:day}
+				}
+			}
+			
+			99 = RESTORE_REGISTER
+			
+		}
+	
+	}
+}

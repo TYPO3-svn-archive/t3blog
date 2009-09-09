@@ -1,0 +1,3 @@
+ # cat=basic; type=string; label=Sender Mail: When approving comments this mail-address will be used to send out the message to the author of the comment.
+sendermail = example@example.org
+

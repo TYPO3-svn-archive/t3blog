@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;latestPostNav&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="back">back</label>
+			<label index="title">Last Post Nav</label>
+			<label index="widgetSelector.description">Latest posts widget</label>
+			<label index="latestPostsTitle">Latest Posts</label>
+			<label index="author">Author: </label>
+			<label index="comments">Comments: </label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="back">Zurück</label>
+			<label index="author">Autor: </label>
+			<label index="comments">Kommentare: </label>
+			<label index="latestPostsTitle">Letzte Beiträge</label>
+		</languageKey>
+
+	</data>
+</T3locallang>

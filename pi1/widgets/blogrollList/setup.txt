@@ -1,0 +1,130 @@
+plugin.tx_t3blog_pi1 {
+	blogrollList {
+		list = COA
+		list {
+			wrap = <div id="blogrollList">|</div>
+			10 = TEXT
+			10 {
+				wrap = <h3>|</h3>
+				field=  title
+			}
+			20 = TEXT
+			20 {
+				stdWrap.wrap = <ul class="blogrollList">|</ul>
+				stdWrap.required = 1
+				field = listItems
+			}
+		}
+		
+		listItem = COA
+		listItem {
+			stdWrap.dataWrap = <li>|</li>
+			10 = TEXT
+			10 {
+				wrap = |
+				field = image
+			}
+			20 = TEXT
+			20 {
+				wrap = |
+				field = title
+				typolink {
+					parameter.field = url
+					title.field = description
+					ATagParams.stdWrap.dataWrap = rel="{field:xfn}"
+				}
+			}		
+		}
+		
+		
+		imgFieldList = USER
+		imgFieldList {
+			userFunc = tx_typoscripttools_pi1->main
+			debug = 0
+			foreign_table = tx_t3blog_blogroll  
+			foreign_uid.field = uid
+			action = damGetReferencedFiles
+			//extraMediaFields = description
+			MM_ident = tx_t3blog_rollimage   
+			mediaItem = CASE
+			mediaItem {
+				key.field = file_type       	
+					
+				default = TEXT
+				default {
+					wrap = |
+					filelink {
+						path.dataWrap = {field:file_path}{field:file_name}
+						labelStdWrap.field = title
+						icon = 1
+						jumpurl = 1
+						jumpurl.secure = 1
+					}
+				}
+			
+				jpg = IMAGE
+				jpg {
+					wrap = |
+					file {
+						import.dataWrap = {field:file_path}{field:file_name}
+						maxW = 80
+					}
+					altText.field = description
+					imageLinkWrap = 1
+					imageLinkWrap {
+						enable = 1
+						
+						JSwindow = 1
+						JSwindow.newWindow = 1
+						JSwindow.expand = 0,0          	
+					}
+				}
+		    
+				gif = IMAGE
+				gif {
+					wrap = |
+					file {
+						import.dataWrap = {field:file_path}{field:file_name}
+						maxW = 80  
+					}
+					altText.field = description
+					imageLinkWrap = 1
+					imageLinkWrap {
+						enable = 1
+						
+						JSwindow = 1
+						JSwindow.newWindow = 1
+						JSwindow.expand = 0,0          	
+					}
+				}
+				png = IMAGE
+				png {
+					wrap = |
+					file {
+						import.dataWrap = {field:file_path}{field:file_name}
+						maxW = 80  
+					}
+					altText.field = description
+					imageLinkWrap = 1
+					imageLinkWrap {
+						enable = 1
+						
+						JSwindow = 1
+						JSwindow.newWindow = 1
+						JSwindow.expand = 0,0          	
+					}
+				}
+			}
+			
+			mediaList = TEXT
+			mediaList {
+				field = mediaItems
+				wrap = |
+			}
+		}
+	
+	}
+}
+
+			
+		

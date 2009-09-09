@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for extension 't3blog'</description>
+		<labelContext type="array">
+		</labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="pi2_title">Blog Widget Selector</label>
+			<label index="pi2_plus_wiz_description">Select a Widget which you want to display.</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="pi2_title">Blog Widget Auswahl</label>
+			<label index="pi2_plus_wiz_description">Wählen Sie ihr gewünschtes Widget aus, welches Sie für Ihren Blog haben wollen.</label>
+		</languageKey>
+	</data>
+</T3locallang>

@@ -1,0 +1,72 @@
+plugin.tx_t3blog_pi1 {
+	latestCommentsNav {
+		numberOfItems = 4
+		list = COA
+		list {
+			wrap = <div id="latestComments">|</div>
+			10 = TEXT
+			10 {
+				wrap = <h3>|</h3>
+				field=  title
+			}
+			20 = TEXT
+			20 {
+				wrap = <dl class="latestCommentsList">|</dl>
+				field = listItems
+			}
+		}
+		
+		listItem = COA
+		listItem {
+			10 = TEXT
+			10 {
+				wrap = <dt>|</dt>
+				field = title
+			}
+			20 = TEXT
+			20 {
+				wrap = <dd>|</dd>
+				field = date
+				strftime = %d.%m.%Y %R
+			}		
+		}
+	
+		link = COA
+		link {
+			#load register
+			1 = LOAD_REGISTER
+			1 {
+				year {
+					field = date
+					strftime = %Y
+				}
+				month {
+					field = date
+					strftime = %m
+				}
+				day {
+					field = date
+					strftime = %d
+				}
+			}
+			
+			10 = TEXT
+			10 {
+				wrap= |
+				field = text
+				crop = 60 | ... | 1
+				typolink {
+					parameter.field = blogUid
+					useCacheHash = 1
+					title.stdWrap.dataWrap = &lt;{field:author}&gt; 
+					additionalParams.dataWrap = &tx_t3blog_pi1[blogList][showUid]={field:showUid}&tx_t3blog_pi1[blogList][year]={register:year}&tx_t3blog_pi1[blogList][month]={register:month}&tx_t3blog_pi1[blogList][day]={register:day}
+					section.dataWrap = comment_{field:alink}
+				}
+			}
+			
+			99 = RESTORE_REGISTER
+			
+		}
+	
+	}
+}

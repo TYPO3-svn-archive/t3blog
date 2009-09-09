@@ -1,0 +1,118 @@
+2009-04-29 Thomas Imboden <timboden@snowflake.ch>
+	* widget blogList: Fixed bug with time in comments
+	* Fixed SQL injections leaks
+
+2009-02-03 Thomas Imboden <timboden@snowflake.ch>
+	* widget blogList: deleted dependency on extension "captcha"
+
+2009-02-02 Dominic Brander <dbrander@snowflake.ch>
+	* changed the splitLongWordsInText function (problem with Chinese)
+
+2009-01-20 Thomas Imboden <timboden@snowflake.ch>
+	* widget blogList: fixed corrupt paging
+
+2009-01-16 Thomas Imboden <timboden@snowflake.ch>
+	* widget blogList: added missing function comment
+
+2009-01-12 Thomas Imboden <timboden@snowflake.ch>
+	* updated documentation
+	* widget blogList: made captcha customisable via Typoscript
+
+2009-01-09 Thomas Imboden <timboden@snowflake.ch>
+	* integrated captcha extension
+	* replaced strtolower with mb_strtolower of task 357.126
+	* widget blogList: shows md5-code instead of blank email to unsubscribe for comments
+
+2009-01-06 Thomas Imboden <timboden@snowflake.ch>
+	* rechanged strtolower due to not yet defined error
+	* changed strtolower into t3lib_div::strtolower of task 357.126
+
+2009-01-06 Thomas Imboden <timboden@snowflake.ch>
+	* added a missing locallang-label in mod3
+
+2008-12-31 Thomas Imboden <timboden@snowflake.ch>
+	* widget BlogList: if approved is set to 0, the notificiation for new comments will be sent after approving in the backend module
+	* Bumped to version 0.5.5
+	* widget BlogList: added functionality to get notified about new comments in a post of task 357.117
+	* widget RSS: made rss-feeds real-url capable of task 357.120
+
+2008-12-30 Thomas Imboden <timboden@snowflake.ch>
+	* widget blogList: added functionality to make comment-fields readonly if a fe-user is logged in of task 357.119
+	* bumped to version 0.5.4
+	* widget blogList: added captcha security in comment form of task 357.116
+	* backend: fixed paging bug (hidden elements were not counted) in mod2 and mod5 of task 357.122
+    * widget socialBookmarks: fixed bug in javascript-code of task 357.118
+	* backend: fixed 'pass-by-reference' error in function addChildrenToNonSelectable of task 357.125
+	* widget tagCloud: fixed some encoding problems reported by marek krawczyk of task 357.123
+	* add new functionality to comment comments of task 357.117
+
+2008-12-23 Thomas Imboden <timboden@snowflake.ch>
+    * widget tagCloud: added maxTagsToShow function according task 357.106
+	* added all missing method and class comments
+
+2008-12-22 Thomas Imboden <timboden@snowflake.ch>
+    * added some missing method and class comments
+
+2008-11-20 Thomas Imboden <timboden@snowflake.ch>
+	* fixed bugs with trackbacks, rss and paging
+	* changed type of permalink
+	* added ###MORE### divider
+	* finished open todo-tasks
+
+2008-10-15 Manu Oehler <moehler@snowflake.ch>
+	* fixed rss.xml if no value and feed_id is set.
+
+2008-10-13 Manu Oehler <moehler@snowflake.ch>
+	* added more locallang_db fields 
+	* tagcloud (check division by zero)
+	* rss added intval in author recognition
+
+2008-08-20 Dominic Brander <dbrander@snowflake.ch>
+	* Included CSS (lib/styles.css) to improve BE rendering options
+	* Several changes in tca.php (remove unused fields, changed some eval functions)
+	* Several changes in widgets: enable fields restrictions, little improvements
+	* Several changes in directory structure (removed unused directories, moved files)
+
+2008-07-28 kay stenschke <kstenschke@snowflake.ch>
+	* replaced 'include' statements by 'include_once' to eliminate possible double-inclusion errors
+	* minor code fix-up (cgl adaption)
+
+2008-07-25 kay stenschke <kstenschke@snowflake.ch>
+	* finished pi2's (selective widget renderer) renderer evokation of pi1's widget calling method (@todo: check if necessary js files are included)
+	* minor bug fixes and code cleanup
+	* integrated itemsProcFunc to dynamicly fetch available widgets into widget selector flexform (pi2)
+	* added missing locallang.xml files to all (before not having them) widgets
+	* added title and description labels into all widgets' locallang files to be available for widget selector
+	* optimized internal images of blog extension
+
+2008-07-24 kay stenschke <kstenschke@snowflake.ch>
+	* cleaned up ext_tables.php
+	* added initialization of pi2 (FE widget selector) flexform
+	* implemented custom wizard (to select widget) into flexform rendering method (todo: write the wizard/ widgets fetcher)
+
+2008-07-23 kay stenschke <kstenschke@snowflake.ch>
+	* fixed kickstarter's code annoyances leftovers in tca and ext_tables php (missing single quotes)
+	* changed extension (emconf) version from 0.0.0 to 0.0.1 and state from 'alpha' to 'stable'
+	* implemented simple DHTML rollover effect for better usability into (mod2,3,4) BE module list views
+	* added width setup into (blogList/setup.txt) image big declaration TS
+	* adopted maxWidth's of global elements TS (static/t3blog/t3blog_global_elements.txt)
+	* fixed ext_tables.sql to avoid further EM warnings about (wrongly) reported/suggested neccessary DB structural updates
+
+2008-07-22 kay stenschke <kstenschke@snowflake.ch>
+	* fixed localization of lang values inside BE module of blogrol (mod5)
+	* fixed reorder options of blogrol BE module (mod5)
+	* made mod5/index.php TYPO3 CGL compliant
+
+2008-07-21 kay stenschke <kstenschke@snowflake.ch>
+	* implemented option to email newly received comments to admin
+	* fist commit of stable t3blog extension (numerous additions)
+	* extended TS setups to show authors emails inside the list- and single view
+	* changes guessed via diff:
+		* added pi2 class (blog widget selector)
+		* vadarious TCA extensions
+		* BE: (mod2,3,5) added curPage recognition (index.php, line 245)
+		* singleFunctions: implemented comments emailing (s.a)
+		* implemented FE flexform
+
+2007-11-14 snowflake  <info@snowflake.ch>
+	* Initial release

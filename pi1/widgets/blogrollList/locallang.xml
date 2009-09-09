@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;Blogroll&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="back">back</label>
+			<label index="title">Blogroll</label>
+			<label index="widgetSelector.description">Blogroll (list of favorite blogs) widget</label>
+			<label index="latestPostsTitle">Blog rolls</label>
+			<label index="xfn.I.0">contact</label>
+			<label index="xfn.I.1">acquaintance</label>
+			<label index="xfn.I.2">friend</label>
+			<label index="xfn.I.3">met</label>
+			<label index="xfn.I.4">co-worker</label>
+			<label index="xfn.I.5">neighbor</label>
+			<label index="xfn.I.6">child</label>
+			<label index="xfn.I.7">parent</label>
+			<label index="xfn.I.8">sibling</label>
+			<label index="xfn.I.9">spouse</label>
+			<label index="xfn.I.10">kin</label>
+			<label index="xfn.I.11">muse</label>
+			<label index="xfn.I.12">crush</label>
+			<label index="xfn.I.13">date</label>
+			<label index="xfn.I.14">sweetheart</label>
+			<label index="xfn.I.15">me</label>
+			<label index="xfn.I.16">colleague</label>
+			<label index="xfn.I.17">co-resident</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="back">Zurück</label>
+		</languageKey>
+
+	</data>
+</T3locallang>

@@ -1,0 +1,12 @@
+The following comment has just been received on ###TSFE###.
+
+Title: ###TITLE###
+
+Text:
+###TEXT###
+
+
+Author name: ###AUTHOR###
+Author Email: ###EMAIL###
+Author Website: ###WEBSITE###
+Author IP-Address: ###IP###

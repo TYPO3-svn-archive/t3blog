@@ -1,0 +1,46 @@
+# global t3blog template handles the inclusion of the setup of each widget 
+# include the widget templates/configurations
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/latestCommentsNav/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/latestPostNav/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/blogList/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/calendar/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/categories/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/blogrollList/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/archive/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/rss/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/rss/static/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/socialBookmarks/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/tagCloud/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3blog/pi1/widgets/searchBox/setup.txt">
+
+
+plugin.tx_t3blog_pi1 {
+
+
+	myblog = USER
+	myblog {
+		userFunc = tx_t3blog_pi1->main
+		widget.blogList < plugin.tx_t3blog_pi1.blogList
+		widget.calendar < plugin.tx_t3blog_pi1.calendar
+		widget.categories < plugin.tx_t3blog_pi1.categories
+		widget.feed < plugin.tx_t3blog_pi1.feed
+		widget.latestPostNav < plugin.tx_t3blog_pi1.latestPostNav
+		widget.blogrollList < plugin.tx_t3blog_pi1.blogrollList
+		widget.latestCommentsNav < plugin.tx_t3blog_pi1.latestCommentsNav
+		widget.archive < plugin.tx_t3blog_pi1.archive
+		widget.rss < plugin.tx_t3blog_pi1.rss
+		widget.socialBookmarks < plugin.tx_t3blog_pi1.socialBookmarks
+		widget.tagCloud < plugin.tx_t3blog_pi1.tagCloud
+		widget.searchBox < plugin.tx_t3blog_pi1.searchBox
+
+		# Load design
+		# Attention! This will only work, when you are 
+		# using the static template "T3BLOG Layout".
+		# The static template has included the full design of 
+		# a blog (position of widgets and much more)
+		template =< plugin.tx_t3blog_pi1.layoutBlog
+	}
+}
+
+plugin.tx_t3blog_pi2.myblog.widget.latestCommentsNav.list.30 = TEXT
+plugin.tx_t3blog_pi2.myblog.widget.latestCommentsNav.list.30.value = hier text

@@ -1,0 +1,27 @@
+# constants which are commonly used for your template in general
+PID {
+	# cat=t3blog/links/01; type=int; label=Specify the id of ID your homepage.
+	startpage = 
+	# cat=t3blog/links/02; type=int; label=Specify the page ID where your visitors can log in in the frontend.
+	feuser.loginPid = 
+	# cat=t3blog/links/03; type=int; label=Specify the page ID where visitors can send a link to their friends. Don't forget to enable this functionality (see below).
+	tipafriendform = 
+}
+
+CONFIGURATION {
+	# cat=t3blog/configuration/01; type=int; label=Do you want to use tip a friend (0/1)? Don't forget to set the page ID (see above).
+	useTipAFriend = 0
+	
+	# cat=t3blog/configuration/02; type=int; label=Do you want to use realURL (0/1)? Don't forget to configure it!
+	useRealURL = 1
+}
+
+TEXT {
+	# cat=t3blog/text/01; type=text; label=Specify the title of your page
+	pagetitle = T3BLOG
+}
+
+URL{
+# cat=t3blog/link/01; type=link; label=Specify the base URL of your website
+	baseURL = http://www.example.org
+}
