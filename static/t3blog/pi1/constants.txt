@@ -1,0 +1,7 @@
+
+
+# T3BLOG specific constants
+plugin.tx_t3blog_pi1 {
+	# cat=t3blog/email/01; type=email; label=Enter the mail of the admin approving the comments
+	blogList.adminsCommentsEmail = testing@testing.test
+}

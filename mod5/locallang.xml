@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for module &quot;txt3blogM5&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="moduleTitle">T3BLOG - TYPO3 based blogging</label>
+			<label index="sectionTitle">Blogroll management</label>
+			<label index="selABlog">Please select a Blog.</label>
+			<label index="note">Note:</label>
+			
+			<label index="xfn.I.0">acquaintance</label>
+			<label index="xfn.I.1">child</label>
+			<label index="xfn.I.2">colleague</label>
+			<label index="xfn.I.3">contact</label>
+			<label index="xfn.I.4">co-resident</label>
+			<label index="xfn.I.5">co-worker</label>
+			
+			<label index="xfn.I.6">crush</label>
+			<label index="xfn.I.7">date</label>
+			<label index="xfn.I.8">friend</label>
+			<label index="xfn.I.9">kin</label>
+			
+			<label index="xfn.I.10">me</label>
+			<label index="xfn.I.11">met</label>
+			<label index="xfn.I.12">muse</label>
+			<label index="xfn.I.13">neighbor</label>
+			
+			<label index="xfn.I.14">parent</label>
+			<label index="xfn.I.15">sibling</label>
+			<label index="xfn.I.16">spouse</label>
+			<label index="xfn.I.17">sweetheart</label>
+			
+			
+			<label index="sorting">Sorting</label>
+			<label index="description">Description</label>
+			<label index="url">URL</label>
+			<label index="xfn">xfn</label>
+			<label index="title">Website title</label>
+			<label index="functions">Functions</label>
+			<label index="showRecords">Showing records</label>
+			<label index="pages">Pages</label>
+			<label index="search">Search</label>
+			<label index="createNewBlogroll">Create a new blogroll</label>
+			<label index="sortBy">Sort by</label>
+			<label index="move_down">Move down</label>
+			<label index="move_up">Move up</label>
+			<label index="delete">Delete</label>
+			<label index="hide">Hide</label>
+			<label index="unhide">Unhide</label>
+			<label index="DESC">DESC</label>
+			<label index="ASC">ASC</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="title">T3BLOG</label>
+		</languageKey>
+	</data>
+</T3locallang>

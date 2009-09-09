@@ -1,0 +1,849 @@
+plugin.tx_t3blog_pi1 {
+	_CSS_DEFAULT_STYLE (
+
+* {
+	margin: 0;
+	padding: 0;
+	background-repeat: no-repeat;
+}
+
+body {
+	background: #fff;
+}
+
+img {
+	border: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:focus{
+	outline:none;
+}
+
+caption {
+	display: none;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th {
+	text-align: left;
+	vertical-align: top;
+}
+
+td {
+	vertical-align: top;
+}
+
+ul {
+	list-style: none;
+}
+
+.clear {
+	clear: both;
+}
+
+.clearNone {
+	clear: none;
+}
+.displayInline {
+	display: inline;
+}
+.displayNone {
+	display: none;
+	position: absolute;
+	left: -9999px;
+}
+.hidden {
+	display: none;
+	position: absolute;
+	left: -9999px;
+}
+.error {
+	color: red;
+}
+
+#box {
+	text-align: left;
+}
+
+#logo {
+	display: none;
+}
+
+		 
+		* {
+			color: #000;
+			font-size: 11px;
+			font-family: Helvetica, Arial,Verdana, sans-serif;
+		}
+		html, body {
+			
+			background-color: #fafafa;
+		}
+		
+		.htmlarea-content-body {
+			text-align: left;
+			padding: 10px;	
+			background: none;
+		}
+		
+		
+		body {
+			background: #0164a7;
+		}
+
+		div.t3blog {
+			background-color: #fff;
+			position: relative;
+			margin-left : 126px;
+			width: 900px;
+			border: 5px #fff solid;
+		}
+		
+		a {
+			color: #277F99;
+		}
+
+
+		form .text {
+			border-color: #000;
+		}
+		
+		form .button {
+			padding: 0 5px 0 5px;
+			border-color: #000;
+			background-color: #fff;
+			color: #000;
+		}
+		.odd {
+			background-color: #EFEFF4;
+		}
+			
+		#title {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			text-indent: -9999px;
+		}
+		
+			#title a {
+				display: block;
+				width: 428px;
+				height: 176px;
+				text-indent: -9999px;
+			}
+			
+		#subtitle {
+			position: absolute;
+			top: 7px;
+			right: 3px;
+			width: 182px;
+			height: 5px;
+			text-indent: -9999px;
+		}
+				
+		#header {
+			position: relative;
+			height: 300px;
+			background: #edeae5 url(/typo3conf/ext/t3blog/static/t3blog/styling/blog_header1.png) no-repeat 0 0;
+			color: white;
+		}
+		
+		#header_bottom {
+			position: absolute;
+			bottom: 0;
+			height: 20px;
+			width: 900px;
+			background: #0164a7 url(/typo3conf/ext/t3blog/static/t3blog/styling/header_bottom.png) repeat-x 0 0;
+		}
+		
+					
+		#searchBox {
+			margin: 20px 0px;
+		}
+		
+			#searchBox label {	
+				display: none;
+			}
+		
+			#searchBox .text {
+				width: 153px !important;
+				width: 143px;
+				padding: 2px 2px 0px;
+				margin-right: 5px;
+				border: 1px solid #BDBBAC;
+				background-color: #F2F1ED;
+				font-size: 10px;
+			}
+			
+			#searchBox .button {
+				/*position: absolute;
+				top: 0px !important;
+				left: 125px;*/
+				z-index: 1;
+				width: 17px;
+				height: 17px;
+				border: 1px solid #BDBBAC;
+				background: #F2F1ED url(/typo3conf/ext/t3blog/icons/button_arrow.gif) no-repeat 50% 50%;
+				text-indent: -9999px;
+				margin-left: 4px;
+			}	
+		ul#mainNavigation {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			z-index: 2;
+		}
+			ul#mainNavigation li {
+				float: left;
+				border-right: 1px #EDEAE5 solid;
+				padding: 0px 5px 2px 5px;
+				height: 12px;
+				position: relative;
+			}
+			
+			ul#mainNavigation li a{
+				color: #fff;
+			}
+		
+			ul#mainNavigation li.first {
+		
+			}
+		
+			ul#mainNavigation li.last {
+				border: none;
+			}
+
+		
+		#col1 {
+			position: relative;
+			float: left;
+			clear: both;
+			width: 130px;
+			min-height: 400px;
+			height: auto !important;
+			height: 400px;
+		}
+		
+		#col2 {
+			position: relative;
+			float: left;
+			height: auto !important;
+			height: 400px;
+			width: 565px !important;
+		
+			
+		}
+			#col2 div.title {
+				margin: 20px 0;	
+			}
+			
+			#col2 h3 {
+				padding: 6px 0;
+			}
+			
+		
+			#col2 h3 a{
+				color: #0063a6;
+				font-size: 18px;
+				
+			}
+			
+			#col2 a {
+				color: #E57A3C;
+				
+			}
+		
+			#col2 .item {
+				width: 475px;
+				border-bottom: 1px #9b9b9b dotted;
+				padding: 30px 2px 32px 2px;
+			
+			}
+			
+			#col2 .single {
+				width: 475px;
+				padding: 30px 2px 32px 2px;
+			}
+			
+			#col2 .item .itemTop div,
+			#col2 .single .itemTop div,
+			#col2 .commentTopNav div{
+				float: left;
+				padding: 0 5px 0 5px;
+				color: #0063a6;
+				font-weight: bold;
+				
+			}
+			
+			#col2 .commentTopNav div p,
+			#col2 .item .itemTop div a,
+			#col2 .single .itemTop div a{
+				color: #0063a6;
+			}
+			
+			#col2 .item .itemTop div.categories,
+			#col2 .single .itemTop div.categories,
+			#col2 .commentTopNav div.author{
+				padding-left: 0;
+				border-right: 1px #0063a6 solid;
+			}
+			
+			#col2 .item .itemBody,
+			#col2 .single .itemBody,
+			#col2 .commentBody{
+				clear: both;
+			}
+			
+			#col2 .item .itemNav,
+			#col2 .single .itemNav {
+				margin-top: 10px;
+				
+			}
+			
+			#col2 .commentBody h5 {
+				padding: 5px 0 3px 0;
+				color: #0063a6;
+			}
+			
+			#col2 .commentBody h5 a{
+				color:  #0063a6;
+			}
+			
+			#col2 .item .itemNav span,
+			#col2 .single .itemNav span{
+				float: left;
+				color: #a4a59f;
+				padding: 0 5px;
+				border-left: 1px #a4a59f solid;
+			}
+			
+			#col2 .item .itemNav span.author,
+			#col2 .single .itemNav span.author{
+				padding: 0 5px 0 0;
+				border-left: none;
+			}
+			
+			#col2 div.author span.author{
+				display:block;
+			}
+			
+			#col2 .item .itemNav span.comments a,
+			#col2 .single .itemNav span.comments a{
+				color: #a4a59f;
+				display: block;
+				padding-left: 15px;
+				background:  url(/typo3conf/ext/t3blog/icons/comment_icon.png) no-repeat 0 50%;
+				font-weight: bold;
+			}
+			
+			#col2 #commentList,
+			#col #trackbackList {
+				margin-top: 33px;
+			}
+			
+			#col2 .commentListListing,
+			#col2 .trackbackListListing {
+				width: 478px;
+				padding: 20px 0 0 0;
+			}
+			
+			#col2 .commentListListing div.item,
+			#col2 .trackbackListListing div.item {
+				padding: 10px;
+			}
+			
+			#col2 #commentListTitle,
+			#col2 #trackbackListTitle	{
+				color: #0065a5;
+				height: 13px;
+				width: 478px;
+				border-bottom: 1px #0065a5 dotted;
+				
+			}
+			
+			#col2 #commentListTitle	li.middle, 
+			#col2 #trackbackListTitle li.middle{
+				border-top: 1px #0065a5 dotted;
+				background: #fff;
+				margin-left: 1px;
+				color: #0065a5;
+				font-size: 15px;
+				font-weight: bold;
+				z-index: 100px;
+				position: relative;
+				top: 0 !important;
+				top: 7px;
+			}
+			
+			#col2 #commentListTitle	li.start,
+			#col2 #trackbackListTitle li.start{
+				position: relative;	
+				top: 0 !important;	
+				top: 7px;
+				width: 7px;
+				margin-left: 20px;
+				margin-bottom: 0 !important;
+				padding: 0;
+				background: url(/typo3conf/ext/t3blog/icons/tab-open.png) no-repeat ;
+			}
+			
+			#col2 #commentListTitle	li.end,
+			#col2 #trackbackListTitle li.end{
+				background: url(/typo3conf/ext/t3blog/icons/tab-close.png) no-repeat;
+				width: 7px;
+				margin-left: 1px;
+				position: relative;
+				top: 0 !important;
+				top: 7px;
+			}
+			
+			#col2 #commentListTitle	li,
+			#col2 #trackbackListTitle li{
+				float: left;
+			}
+			
+			
+			#col2 .editComment a{
+				margin: -7px 0;
+				background-color:#EDEAE5;
+				border: 1px solid #A5A49F;
+				color: #A5A49F;
+				font-size: 13px;
+				float: right;
+				
+			}
+			
+			
+			#col2 .commentFooter {
+				padding: 3px 0 0 0;
+				color: #a4a59f;
+			}
+			
+			#col2 .t3blog_img {
+				border: 1px #d6d6d6 solid;
+				padding: 5px;
+				margin-top: 18px;
+			}
+		
+			#mainContent {
+				padding: 20px 10px;
+			}
+		
+		#col3 {
+			position: relative;
+			float: left;
+			width: 205px !important;
+			width: 195px;
+			color: grey;
+			font-size: 9px;
+			font-family: Helvetica, Arial,Verdana, sans-serif; 
+		}
+		
+			#col3 a {
+				background: url(/typo3conf/ext/t3blog/icons/link_arrow.png) no-repeat 100% 50%;
+				padding: 2px 13px 2px 2px;
+				color: #a5a6a0;
+				font-family: Georgia;
+				font-size: 12px;
+			}
+			
+			#col3 h3, #col3 h3 a  {
+				color: #33aad4;
+				font-size: 12px;
+			}
+
+		#footer {
+			position: relative;
+			border-top: 1px #000 dotted;
+		}
+		
+		.typo3-adminPanel {
+			text-align: left;
+		}
+		
+		/*************************************************
+			Content
+		*************************************************/
+				
+		input.text,
+		textarea.text {
+			border-color: #988F89;
+		}
+
+		
+		/* FormElements */
+		.formElement {
+		    padding: 5px 0;
+		}
+
+		.formElement label {
+		    width: 84px !important;
+		    width: 120px;
+		    padding: 0 0 0 13px;
+		    float: left;
+		    display:block;
+		    color: #A5A6A0;
+		    font-weight: bold;
+		}
+	
+	
+		.formElement .requiredElement {
+		    left: 26px !important;
+		    left: 6px;
+		    color: #fc0007;
+		}
+	
+		/* Form defaultInputs */
+		.inputText input,
+		.textarea textarea,
+		.textElement input,
+		.textElement textarea {
+		    width: 284px !important;
+		    width: 288px;
+		}
+	
+		.textElement select,
+		.select select {
+		    width: 288px;
+		}
+	
+		.formElement .left,
+		#mainContent .formElement .left {
+			width: 124px !important;
+			width: 130px;
+			padding: 0 0 0 13px;
+			font-weight: normal;
+		}
+	
+	
+		.formElement .right {
+			width: 284px;
+		}
+		
+		
+		h3 {
+			line-height: 17px;
+			padding: 4px 2px;
+			color: #74c0e2;
+		}
+		
+		div#latestPosts, div#categories, div#archive, div#latestComments, div#socialBookmarks, div.rss{
+			padding: 2px;
+			margin-bottom: 10px;
+			width: 180px;
+			
+		}
+		
+		
+		#categories ul, #archive ul {
+			border: none;
+			margin-left: 10px;
+			padding: 4px 2px;
+		}
+		
+		
+		#categories ul li a.iconbeforetext, #archive ul li a.toggle {
+			background: none;
+		}
+		
+		.delicious {
+			background: url(/typo3conf/ext/t3blog/icons/delicious.small.gif) no-repeat 2px;
+		}
+		
+		p.delicious a{
+			padding-left: 15px;
+		}
+		
+		div#socialBookmarks .bookmarks a {
+			background: none;
+			padding: 2px;
+		
+		}
+		
+		#categories .iconbeforetext	{
+			padding-right: 2px;
+		}
+		
+		#archive .postnum,
+		#categories .postnum {
+			font-size: 9px;
+			margin-left: 3px;
+		}
+
+		
+		
+/* ----------------------------
+		Calendar 
+------------------------------*/
+
+		#calendar {
+			/*width: 180px;*/
+			height: 150px;
+			margin: 5px 0 5px 0;
+			font-size: 9px;
+		
+		}
+		
+		#calendar table {
+			width: 185px;
+			height: 145px;
+			border: 1px #bdbbac solid;
+			color: #34a9d5;
+		}
+		
+		#calendar td, 
+		#calendar th {
+			text-align: center;
+			vertical-align: middle;
+			color: #34a9d5;
+		}
+		
+		#calendar td{
+			width:25px;
+		}
+		
+		#calendar th {
+			background-color: #edeae5;
+		}
+		
+		#calendar th a{
+			background: none;
+		}
+		
+		#calendar th.navigation a{
+			padding: 0;
+		}
+		
+		
+		#calendar td {
+			background-color: #f2f1ed;
+			border: 1px #fff solid;
+		}
+		
+		
+		#calendar td.last {
+			border-right: 1px #bdbbac solid;
+		}
+		
+		#calendar td.first {
+			border-left: 1px #bdbbac solid;
+		}
+		
+		#calendar td.lastrow {
+			border-bottom: 1px #bdbbac solid;
+		}
+		
+		#calendar table td.isBlogDay a{
+			display: block;	
+			color: #d46315;
+			background: none;
+			padding: 0;
+		}
+		
+		#calendar table td.calendarToday {
+			background: #EDEAE5;
+		}
+		
+/* ----------------------------
+		Comment + Trackback
+------------------------------*/
+		
+		h4 {
+			font-size: 16px;
+			margin:10px 0;
+		}
+		
+		#commentList .commentListListing .item {
+			padding: 10px 2px 15px;
+		}
+		
+		#commentForm {
+			position: absolute;
+			top: 200px;
+			left:300px;
+			width: 400px !important;
+			width: 400px;
+			border: 1px solid #bdbbac;
+			background-color: #fff;
+		}
+		
+		
+		.blogCommentMessage {
+			margin: 10px 0;
+			color: #99CB34;	
+			font-size:16px;
+		}
+		
+		.commentError {
+			padding: 5px 13px;
+			background: #FFDDCC none repeat scroll 0%;
+		}
+		
+		.commentError li {
+			list-style-type: square;
+			margin-left: 13px;
+		}
+		h6.commentError {
+			background: #D46315 none repeat scroll 0%;
+			color: #FFFFFF;	
+		}
+		.commentFormStyle h3,
+		.commentFormStyle .closebutton {
+			background-color: #f2f1ed;
+		}
+		
+		.commentFormStyle h3 {
+			padding-left: 20px;
+		}
+		
+		#commentFormNonAjax textarea,
+		#commentFormNonAjax input,
+		#commentForm textarea,
+		#commentForm input {
+			background-color: #edeae5;
+			width: 379px !important;
+			width: 354px;
+			color: #a5a49f;
+			border: 1px #a5a49f solid;
+			height: 25px;
+			font-size: 13px;
+		}
+		
+		#commentFormNonAjax textarea {
+			height: 140px;
+		}
+		
+		#commentFormNonAjax	{
+			width: 478px; 
+			border-width: 1px 0;
+			margin-top: 20px;
+		}
+		
+		#commentFormNonAjax .closebutton {
+			display: none;
+		}
+		
+		#commentFormNonAjax input.button {
+			margin-right: 0 !important;
+			margin-right: 0px ;
+			width: 80px !important;
+		}
+		
+		
+		#commentForm .closebutton {
+			position: relative;
+			left: 370px;
+			top: -20px;
+			width: 12px;
+			height: 12px;
+		}
+		
+		#commentForm .closebutton img{
+			margin: 1px 0 0 1px;
+		
+		}
+		
+		#archive a.toggle {
+			background: none;
+			padding-right: 2px;
+		}
+		
+/*-----------------------------------------------------
+			t3blog RSS
+-----------------------------------------------------*/
+		
+		div.rss_post a {
+			margin-left: 2px;
+		}
+		
+		div.rss_comment  {
+			position: relative;
+			top: -15px;
+			margin-left: 90px;
+		}
+		
+		div.rss img {
+			position: relative;
+			top: 1px;
+		}
+		
+/*-----------------------------------------------------
+			Single Navigation
+------------------------------------------------------*/
+		
+		div#singleNavigation {
+			width: 475px;
+			margin-top: 20px;
+			position: relative;
+		}
+		
+		div#singleNavigation .previous {
+			float:left;
+		}
+		
+		div#singleNavigation .next {
+			position: absolute;
+			right: 0;
+		}
+		
+		div#singleNavigation .previous a{
+			background: url(/typo3conf/ext/t3blog/icons/nav_arrow_prev.png) no-repeat left 50%;
+			padding-left: 15px;
+		}
+		
+		div#singleNavigation .next a{
+			background: url(/typo3conf/ext/t3blog/icons/nav_arrow_next.png) no-repeat right 50%;
+			padding-right: 15px;
+		}
+		div#singleNavigation .backtolist {
+			float: left;
+			margin-left: 30px;
+			margin-right: 30px;
+		
+		}
+/*-----------------------------------
+		           Tag Clouds
+-------------------------------------*/
+		h3 titleTag {
+			margin-top: 10px;
+			line-height: 17px;
+			padding: 4px 2px;
+			color: #74c0e2;		
+		}
+		
+		.tagCloud-title{
+			position: absolute;
+			top: 60px;
+			height: 5px;
+			width: 280px;
+			left: 600px;
+			color: #0063A6;
+			text-align:center;
+		}
+		.tagCloud {
+			position: absolute;
+			top: 80px;
+			height: 195px;
+			width: 280px;
+			left: 600px;
+			overflow:auto;
+		}
+		.tagCloud .tag-cloud li {
+			float: left;
+			margin-right: 6px;
+			margin-top: 3px;
+		}
+
+
+
+		
+	)
+}

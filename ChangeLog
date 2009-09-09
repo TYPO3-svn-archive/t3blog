@@ -1,0 +1,63 @@
+08-11-20 Thomas Imboden <timboden@snowflake.ch>
+	* fixed bugs with trackbacks, rss and paging
+	* changed type of permalink
+	* added ###MORE### divider
+	* finished open todo-tasks
+
+08-10-15 Manu Oehler <moehler@snowflake.ch>
+	* fixed rss.xml if no value and feed_id is set.
+
+08-10-13 Manu Oehler <moehler@snowflake.ch>
+	* added more locallang_db fields 
+	* tagcloud (check division by zero)
+	* rss added intval in author recognition
+
+08-08-20 Dominic Brander <dbrander@snowflake.ch>
+	* Included CSS (lib/styles.css) to improve BE rendering options
+	* Several changes in tca.php (remove unused fields, changed some eval functions)
+	* Several changes in widgets: enable fields restrictions, little improvements
+	* Several changes in directory structure (removed unused directories, moved files)
+
+08-07-28 kay stenschke <kstenschke@snowflake.ch>
+	* replaced 'include' statements by 'include_once' to eliminate possible double-inclusion errors
+	* minor code fix-up (cgl adaption)
+
+08-07-25 kay stenschke <kstenschke@snowflake.ch>
+	* finished pi2's (selective widget renderer) renderer evokation of pi1's widget calling method (@todo: check if necessary js files are included)
+	* minor bug fixes and code cleanup
+	* integrated itemsProcFunc to dynamicly fetch available widgets into widget selector flexform (pi2)
+	* added missing locallang.xml files to all (before not having them) widgets
+	* added title and description labels into all widgets' locallang files to be available for widget selector
+	* optimized internal images of blog extension
+
+08-07-24 kay stenschke <kstenschke@snowflake.ch>
+	* cleaned up ext_tables.php
+	* added initialization of pi2 (FE widget selector) flexform
+	* implemented custom wizard (to select widget) into flexform rendering method (todo: write the wizard/ widgets fetcher)
+
+08-07-23 kay stenschke <kstenschke@snowflake.ch>
+	* fixed kickstarter's code annoyances leftovers in tca and ext_tables php (missing single quotes)
+	* changed extension (emconf) version from 0.0.0 to 0.0.1 and state from 'alpha' to 'stable'
+	* implemented simple DHTML rollover effect for better usability into (mod2,3,4) BE module list views
+	* added width setup into (blogList/setup.txt) image big declaration TS
+	* adopted maxWidth's of global elements TS (static/t3blog/t3blog_global_elements.txt)
+	* fixed ext_tables.sql to avoid further EM warnings about (wrongly) reported/suggested neccessary DB structural updates
+
+08-07-22 kay stenschke <kstenschke@snowflake.ch>
+	* fixed localization of lang values inside BE module of blogrol (mod5)
+	* fixed reorder options of blogrol BE module (mod5)
+	* made mod5/index.php TYPO3 CGL compliant
+
+08-07-21 kay stenschke <kstenschke@snowflake.ch>
+	* implemented option to email newly received emails to admin
+	* fist commit of stable t3blog extension (numerous additions)
+	* extended TS setups to show authors emails inside the list- and single view
+	* changes guessed via diff:
+		* added pi2 class (blog widget selector)
+		* vadarious TCA extensions
+		* BE: (mod2,3,5) added curPage recognition (index.php, line 245)
+		* singleFunctions: implemented comments emailing (s.a)
+		* implemented FE flexform
+
+07-11-14 snowflake  <info@snowflake.ch>
+	* Initial release

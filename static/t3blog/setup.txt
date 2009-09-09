@@ -1,0 +1,50 @@
+# config for realURL
+config.baseURL = {$URL.baseURL}
+config.tx_realurl_enable = {$CONFIGURATION.useRealURL}
+
+# here everything is put together
+page = PAGE
+page.10 < plugin.tx_t3blog_pi1.myblog
+
+
+page.includeJS {
+	10 = EXT:t3blog/static/js/mootools/mootools.js
+}
+
+
+page.headerData.1000 = COA
+page.headerData.1000 {
+	# load the .js for the blog
+	10 = TEXT
+	10 {
+		value = <script type="text/javascript" src="typo3conf/ext/t3blog/static/js/globalFuncs.js"></script>
+	}
+}
+
+
+xmlnews = PAGE
+xmlnews {
+	typeNum = 100
+	config {
+		disableAllHeaderCode = 1
+		additioalHeaders = Content-type:text/xml
+		linkVars = L
+		no_cache = 1
+ 		xhtml_cleaning = 0
+ 		admPanel = 0
+ 	}
+ 	10 = USER
+	10 {
+		# Call the user function
+		userFunc = tx_t3blog_pi1->main
+		widget.rss < plugin.tx_t3blog_pi1.rss
+		
+		# Load "design" of the RSS-stuff
+		# Attention! This will only work, when you are 
+		# using the static template "T3BLOG Layout".
+		# The static template has included the full design of 
+		# a blog (position of widgets and much more)t
+		
+		template =< plugin.tx_t3blog_pi1.layoutBlog.40.80
+	}
+}

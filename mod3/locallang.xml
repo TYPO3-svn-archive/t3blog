@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for module &quot;txt3blogM3&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="moduleTitle">T3BLOG - TYPO3 based blogging</label>
+			<label index="title">T3BLOG</label>
+			<label index="selABlog">Please select a blog</label>
+			<label index="note">Note:</label>			
+			<label index="dateAndTime">Date &amp; Time</label>
+			<label index="title">Title</label>
+			<label index="text">Text</label>
+			<label index="author">Author</label>
+			<label index="post">Post</label>
+			<label index="functions">Functions</label>
+			<label index="showRecords">Showing records</label>
+			<label index="pages">Pages</label>
+			<label index="search">Search</label>
+			<label index="sortBy">Sort by</label>
+			<label index="createNewComment">Create a new comment</label>
+			<label index="sectionTitle">Comment management</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="title">T3BLOG</label>
+		</languageKey>
+	</data>
+</T3locallang>

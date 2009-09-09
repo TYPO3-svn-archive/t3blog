@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;searchBox&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="back">back</label>
+			<label index="title">SearchBox</label>
+			<label index="widgetSelector.description">Search box widget (allowing to send a search)</label>
+			<label index="socialbookmarkingTitle">Search box</label>
+			<label index="buttonTitle">search</label>
+			<label index="searchBoxLabel">Search:</label>
+			<label index="searchBoxDefault">search...</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="back">Zurück</label>
+			<label index="buttonTitle">suchen</label>
+			<label index="searchBoxLabel">Suche:</label>
+			<label index="searchBoxDefault">suchen...</label>
+		</languageKey>
+	</data>
+</T3locallang>
